@@ -1,12 +1,12 @@
 \section*{Probabilities}
 \subsection*{Expectation}
-$\mathbbm{E}[X]=\int_{\Omega}xf(x)\di x=\int_{\omega}x\mathbb{P}[X{=}x]\di x$
+$\mathbbm{E}[X]=\int_{\Omega}xf(x)\di x=\int_{\omega}x\mathbb{P}[X{=}x]\di x$ \\
 $\mathbb{E}_{Y|X}[Y]=\mathbb{E}_{Y}[Y|X]$\\
 $\mathbb{E}_{X,Y}[f(X,Y)]=\mathbb{E}_{X}\mathbb{E}_{Y|X}[f(X,Y)|X]$
 % $\mathbb{E}_{Y|X}[f(X,Y)|X]{=}\int_\mathbb{R}f(X,y)\mathbb{P}(y|X)\di y$
 
 \subsection*{Variance \& Covariance}
-$\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
+$\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}$ \\ $\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
 $\mathbb{V}[X+Y]{=}\mathrm{Var}[X]+\mathrm{Var}[Y]\quad X,Y \,\text{iid}$\\
 $\mathbb{V}[\alpha X]=\alpha^2\mathrm{Var}[X]$
 
@@ -54,7 +54,7 @@ Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$
 Prior Knowledge of $p(\theta)$,\\
 Find Posterior Density: $p(\theta|\mathcal{X})$.\\
 $\mathcal{X}^n=\{x_1, \cdots, x_n\}$\\
-$p(\theta|\mathcal{X}^n)=\frac{p(x_n|\theta)p(\theta|\mathcal{X}^{n-1})}{\int p(x_n|\theta)p(\theta|\mathcal{X}^{n-1} d\theta}$
+$p(\theta|\mathcal{X}^n)=\frac{p(x_n|\theta)p(\theta|\mathcal{X}^{n-1})}{\int p(x_n|\theta)p(\theta|\mathcal{X}^{n-1}) d\theta}$
 % Difficult \& needs prior knowledge. But better against overfitting.
 
 \section*{Optimization}
