@@ -8,16 +8,20 @@ $\mathbb{E}_{X,Y}[f(X,Y)]=\mathbb{E}_{X}\mathbb{E}_{Y|X}[f(X,Y)|X]$
 \subsection*{Variance \& Covariance}
 $\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}$ \\ $\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
 $\mathbb{V}[X+Y]{=}\mathrm{Var}[X]+\mathrm{Var}[Y]\quad X,Y \,\text{iid}$\\
+$\mathbb{V}(AX) = A \mathbb{V}(X) A^T$ \\
 $\mathbb{V}[\alpha X]=\alpha^2\mathrm{Var}[X]$
 
 $\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$
+
 \subsection*{Conditional Probabilities \& Bayes}
 $\mathbb{P}[X|Y]=\frac{\mathbb{P}[X,Y]}{\mathbb{P}[Y]}=\frac{\mathbb{P}[Y|X]\mathbb{P}[X]}{\mathbb{P}[Y]}$
+
 \subsection*{Distributions}
 $\mathcal{N}(x|\mu, \sigma^2)=\frac{e^{-(x-\mu)^2/(2\sigma^2)}}{\sqrt{2\pi\sigma^2}}$\\
 $\mathcal{N}(x|\bm{\mu}, \bm{\Sigma})= \frac{e^{-\frac{1}{2}(\mathbf{x}-\bm{\mu})^T\bm{\Sigma}^{-1}(\mathbf{x}-\bm{\mu})}}{(2\pi)^{D/2}|\bm{\Sigma}|^{1/2}} $\\
 $\mathrm{Exp}(x|\lambda){=}\lambda e^{-\lambda x}$, $\mathrm{Ber}(x|\theta){=}\theta^x (1{-}\theta)^{(1-x)}$
 Sigmoid: $\sigma(x)=1/(1+e^{-x})$
+
 
 \subsection*{Chebyshev \& Consistency}
 $\mathbb{P}(|X-\mathbb{E}[X]|\geq \epsilon)\leq \frac{\mathbb{V}[X]}{\epsilon^2}$\\
