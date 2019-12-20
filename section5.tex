@@ -57,12 +57,6 @@ $g(x)=a^T\tilde{x}\quad a=(w_0,w)^T, \tilde{x}=(1,x)^T$\\
 $a^T\tilde{x}_i>0 \Rightarrow y_i=1, a^T\tilde{x}_i<0 \Rightarrow y_i=2$\\
 Normalization: $\tilde{x}_i\rightarrow-\tilde{x}_i$ if $y_i=2$
 Find $a$: $a^T\tilde{x}_i>0,\forall_i$!\\
-Learning w. Gradient Descent:\\
-$a(k+1)=a(k)-\eta(k)\nabla J(a(k))$\\
-$J(.)$: cost function $\eta(.)$: learning rate\\
-Newton's rule (opt. grad descent):\\
-$a(k+1)=a(k)-H^{-1}\nabla J, H=\frac{\partial^2 J}{\partial a_i \partial a_j}$\\
-Taylor: $f(x)=f(a)+(x-a)f'(a)+\dots$
 \subsection*{Perceptron Criterion}
 $J_P(a)=\sum_{\tilde{x}\in\mathcal{X}^\text{msc}}(-a^T\tilde{x})$,\\
 $\mathcal{X}^\text{msc}$: set of misclassified samples.\\
