@@ -74,6 +74,12 @@ $H=\nabla^2_{\theta}\mathcal{L}$ has to be p.d (convex func).
 Find this by setting derivative wrt. t of taylor expansion of loss function to 0. \\
 Taylor:$f(x+t)=f(x)+t f'(x)+\frac{1}{2}f''(x)t^2$
 
+\section*{Data Types}
+monadic: $X: O \rightarrow R^d$ \\
+dyadic: $X: O^{(1)} x O^{(2)} \rightarrow R^d $ \\
+pairwise: $X: O^{(1)} x O^{(1)} \rightarrow R^d$ \\
+polyadic data: $X: O^{(1)} x O^{(2)} x O^{(3)} \rightarrow R^d $ \\
+nominal = qualitative (sweet, sour ...), ordinal = absolute order of items, quantitative = numbers
 \section*{Risks and Losses}
 % \subsection*{Expected Risk}
 Conditional Expected Risk\\
@@ -94,5 +100,4 @@ $\hat{R}(\hat{f}, Z^{test}) = \frac{1}{m} \sum_{i=n+1}^{n+m} Q(Y_i, \hat{f}(X_i)
 % $\hat{R}(\hat{f}, Z^{test}) \neq \mathbbm{E}_{X}[R(f,X)]$
 $Z^\text{train}={(X_1,Y_1),...,(X_n,Y_n)}$ \\
 $Z^\text{test}={(X_{n+1},Y_{n+1}),...,(X_{n+m},Y_{n+m})}$
-
 

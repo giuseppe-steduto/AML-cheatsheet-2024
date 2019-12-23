@@ -63,5 +63,5 @@ $\text{Beta}(x|a,b)=B(a,b)^{-1} x^{a-1}(1-x)^{b-1}$: prob. of Bernoulli proc. af
 $\mathbb{P}[z_i=k|z_{-i},\alpha]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1} & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1} & \text{oth.}\end{cases}$. Final Gibbs sampler:\\
 $\mathbb{P}[z_i=k|z_{-i},\alpha,\mu]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1}p(x_i|x_{-i,k},\mu) & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1}p(x_i,\mu) & \text{oth.}\end{cases}$
 
-\subsection*{Gibbs sampling}:\\
+\subsection*{Gibbs sampling}
 Init: assign all data to a cluster, with prior $\pi_i$, with $\sum_{k=1}^K\pi_i<1$ (s.t. new clusters possible). E.g. with stick-breaking. Then remove $x$ from $k$ and compute new $\theta_k$, then compute Gibbs sampler prob. (CRP), and sample the new cluster assignment $z_i\sim p(z_i|x_{-i},\theta_k)$. If cluster is empty, remove it and decrease $K$.
