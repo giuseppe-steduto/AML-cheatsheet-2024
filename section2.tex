@@ -30,12 +30,16 @@ Is an orth. projection with lowest variance of all unbiased estimates.\\
 \textbf{Setting}: Penalize energy in $\beta$.\\
 $\mathcal{L} = (\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)+\lambda\beta^T\beta$\\
 \textbf{Solution:} differentiate $\mathcal{L}$ w.r.t $\beta$\\
-$\hat{\beta}^\text{ridge} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbb{I})^{-1}\mathbf{X}^{T}\mathbf{y}$
+$\hat{\beta}^\text{ridge} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbb{I})^{-1}\mathbf{X}^{T}\mathbf{y}$ \\
+\textbf{Bayesian view:} $Y|(X, \beta) \textasciitilde \mathcal{N}(x^T\beta, \sigma^2 I)$\\
+$ \beta \textasciitilde \mathcal{N}(0, \sigma^2/\lambda*I)$
 
 \subsection*{(3) Lasso ($L^1$ penalty)}
 \textbf{Setting:} Penalize full $\beta$.\\
 $\mathcal{L} = \sum_{i=1}^n(y_i-x_i^T\beta)^2+\lambda\sum_{j=1}^d|\beta_j| $\\\\
 $=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)+\lambda||\beta||_1$\\
+\textbf{Bayesian view:} $Y|(X, \beta) \textasciitilde \mathcal{N}(x^T\beta, \sigma^2 I)$\\
+Laplace prior: $p(\beta_i) = \frac{\lambda}{4\sigma^2} exp(-|\beta|\frac{\lambda}{2\sigma^2})$
 Lasso has no closed form.
 
 \subsection*{(4) Bayesian Linear Regression}

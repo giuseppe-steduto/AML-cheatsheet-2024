@@ -29,17 +29,25 @@ $\lim_{n\rightarrow\infty} P(|\hat{\mu}-\mu |>\epsilon)=0$
 
 \subsection*{Cramer Rao lower bound}
 $\mathrm{Var}[\hat{\theta}]\geq \mathcal{I}_n(\theta)^{-1}$\\
-$\mathcal{I}_n(\theta) = -\mathbb{E}[\frac{\partial^2 \mathrm{log}[\mathcal{X}_n|\theta]}{\partial \theta^2}]$, $\hat{\theta}$ unbiased\\
-Efficiency of $\hat{\theta}$: $e(\theta_n)=\frac{1}{\mathrm{Var}[\hat{\theta}_n]\mathcal{I_n(\theta)}}$\\
+$\mathcal{I}_n(\theta) = -\mathbb{E}[\frac{\partial^2 \mathrm{log}p[\mathcal{X}_n|\theta]}{\partial \theta^2}]$, $\hat{\theta}$ unbiased\\
+Efficiency of $\hat{\theta}$: $e(\theta_n)=\frac{1}{\mathrm{Var}[\hat{\theta}_n]\mathcal{I}_n(\theta)}$\\
 $e(\theta_n) = 1$ (efficient)\\
 $lim_{n\rightarrow\infty}e(\theta_n) = 1$ (asymp. efficient)
 
-\subsection*{Matrix Derivations}
-$\frac{\partial \mathbf{a}^T\mathbf{x}}{\partial\mathbf{x}}{=}\mathbf{a} \quad \frac{\partial \mathbf{a}^T\mathbf{Xb}}{\partial\mathbf{X}}{=}\mathbf{ab}^T \quad \frac{\partial \mathbf{a}^T\mathbf{X}^T\mathbf{b}}{\partial\mathbf{X}}{=}\mathbf{ba}^T $\\
-$\frac{\partial \mathbf{a}^T\mathbf{Xa}}{\partial\mathbf{a}}{=}\mathbf{a}^T(\mathbf{X}+\mathbf{X}^T)$,$\frac{\partial \mathbf{K}^{-1}}{\partial K}=-\mathbf{K}^{-1}\mathbf{K}'\mathbf{K}^{-1}$\\
- $\frac{\partial}{\partial\mathbf{x}} \mathbf{f(x)}^T\mathbf{g(x)}{=}\mathbf{f(x)}^T\frac{\partial \mathbf{g(x)}}{\partial\mathbf{x}}+\mathbf{g(x)}^T\frac{\partial\mathbf{f(x)}}{\partial\mathbf{x}}$\\
-$\mathbf{X}^T\mathbf{X}$: invertible if no no zero eigenvalues.
-Inversion unstable if ratio from $\mathbf{X}$'s smallest EV to the largest is big.
+\subsection*{Derivatives}
+$\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{x}) = \frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{b}) = \mathbf{b}$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{A}\mathbf{x}) = (\mathbf{A}^\top + \mathbf{A})\mathbf{x}$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{A}\mathbf{x}) = \mathbf{A}^\top \mathbf{b}$ \quad
+$\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X} \mathbf{b}) = \mathbf{c}\mathbf{b}^\top$ \quad
+$\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X}^\top \mathbf{b}) = \mathbf{b}\mathbf{c}^\top$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\| \mathbf{x}-\mathbf{b} \|_2) = \frac{\mathbf{x}-\mathbf{b}}{\|\mathbf{x}-\mathbf{b}\|_2}$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\partial \mathbf{x}} (\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$ \quad
+$\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$  \quad $\frac{\partial}{\partial \mathbf{x}}||\mathbf{x}||_1 = \frac{\mathbf{x}}{|\mathbf{x}|}$ \quad
+$\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{Ax - b}\|_2^2) = \mathbf{2(A^\top Ax-A^\top b)}$ \quad
+$\frac{\partial}{\partial \mathbf{X}}(|\mathbf{X}|) = |\mathbf{X}|\cdot \mathbf{X}^{-1}$ \quad $\frac{\partial}{\partial x}(\mathbf{Y}^{-1}) = -\mathbf{Y}^{-1} \frac{\partial\mathbf{Y}}{\partial x} \mathbf{Y}^{-1}$
+$\mathbf{X}^T\mathbf{X}$: invertible if no non zero eigenvalues.
+
 
 \section*{Parametric Density Estimation}
 \subsection*{Maximum Likelihood (MLE)}
@@ -54,12 +62,19 @@ Find: $\hat{\theta}\in \argmax_\theta P(\theta|\mathcal{X}) =$\\
 $=\argmax_\theta P(\mathcal{X}|\theta)P(\theta)$\\
 Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$
 
+\subsection*{Bayesian learning}
+$p(X=x|data) = \int p(x, \theta | data) d\theta = \int p(x|\theta)p(\theta|data)d\theta$
 \subsection*{Bayesian density learning}
 Prior Knowledge of $p(\theta)$,\\
 Find Posterior Density: $p(\theta|\mathcal{X})$.\\
 $\mathcal{X}^n=\{x_1, \cdots, x_n\}$\\
 $p(\theta|\mathcal{X}^n)=\frac{p(x_n|\theta)p(\theta|\mathcal{X}^{n-1})}{\int p(x_n|\theta)p(\theta|\mathcal{X}^{n-1}) d\theta}$
 % Difficult \& needs prior knowledge. But better against overfitting.
+
+
+\subsection*{Frequentist vs Bayesian}
+Bayes (MAP): allows priors, provides distribution when estimating parameters, requires efficient integration methods when computing posteriors, prior often induces regularization term \\
+Frequentist method (MLE): does not allow priors, provides a single point when estimating parameters, requires only differentiation methods, MLE estimators are consistent, equivariant, asymptotically normal, asymptotically efficient. 
 
 \section*{Optimization}
 \subsection*{Gradient Descent}

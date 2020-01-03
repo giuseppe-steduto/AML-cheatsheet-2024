@@ -1,5 +1,5 @@
 \section*{Numerical Est. Techinques}
-\textbf{Setting}: Estimate$\hat{f}(x) \in \mathcal{F}$ with minimal prediction error.
+\textbf{Setting}: Estimate$\hat{f}(x) \in $ hypothesis class with minimal prediction error.
 
 \subsection*{K-Fold Cross Validation}
 Initialisation (split training set):\\
@@ -17,8 +17,8 @@ Underfits because smaller dataset.\\
 \subsection*{Bootstrapping}
 Bootstrap samples: $\mathcal{Z}^*=\{\mathcal{Z}_1^*, \cdots\mathcal{Z}_B^*\}$, of same size as original, drawn with replacement.
 The chance of a sample to have appeared in the bootstrap is:\\
-$1-(1-\frac{1}{n})\stackrel{n\to\infty}{\to} 1-\frac{1}{e}\approx 0.632$. So if we compute the ERM on $\mathcal{Z}$ we could get 63\% accuracy by memorization. Over-confident!\\
-\textbf{Leave-one-out}: compensates by computing the ERM where no memorization was for specific sample. E.g., for classification, like cross-validation:\\
+$1-(1-\frac{1}{n})\stackrel{n\to\infty}{\to} 1-\frac{1}{e}\approx 0.632$. So if we compute the ERM on $\mathcal{Z}$ we could get 63\% accuracy by memorization. Over-confident (shows too small bias)!\\
+\textbf{Leave-one-out/out of bucket error}: compensates by computing the ERM where no memorization was for specific sample. E.g., for classification, like cross-validation:\\
 $\hat{\mathcal{R}}(S(\mathcal{Z}))=\frac{1}{B}\sum_{b=1}^B\sum_{z_i\not\in\mathcal{Z}^{*b}}\frac{\mathbb{I}_{c(x_i)\neq y_i}}{B-\lvert\mathcal{Z}^{*b}\rvert}$
 
 \subsection*{Jackknife}
@@ -30,6 +30,6 @@ Debiased est. can have big variance!\\
 \textbf{Bootstrap debiased}\\ $\bar{S}{=}2\hat{S}{-}\frac{1}{B}\sum_b\hat{S}^*(b)$
 
 \section*{Model selection}
-\textbf{Bayesian Information Criterion\\ (BIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+k\log(n)$. Penalizes larger models (larger $k$ with more data $n$). Tendency to underfit.\\
-\textbf{Akaike Information Criterion\\ (AIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2k$. Tendency to overfit.\\
-\textbf{Takeuchi Information Criterion\\ (TIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2\text{Tr}(\mathcal{I}\mathcal{J}^{-1})$.
+\textbf{Bayesian Information Criterion (BIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+k\log(n)$. Penalizes larger models (larger $k$ with more data $n$). Tendency to underfit.\\
+\textbf{Akaike Information Criterion (AIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2k$. Tendency to overfit.\\
+\textbf{Takeuchi Information Criterion (TIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2\text{Tr}(\mathcal{I}\mathcal{J}^{-1})$. \\ Correction of AIC if true model is not element of model class. If it is, they collapse to be the same.
