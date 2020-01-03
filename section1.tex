@@ -27,6 +27,9 @@ Sigmoid: $\sigma(x)=1/(1+e^{-x})$
 $\mathbb{P}(|X-\mathbb{E}[X]|\geq \epsilon)\leq \frac{\mathbb{V}[X]}{\epsilon^2}$\\
 $\lim_{n\rightarrow\infty} P(|\hat{\mu}-\mu |>\epsilon)=0$
 
+\subsection*{Jensen Inequality}
+$f(\sum_{i=1}^n \lambda_i x_i) \leq \sum_{i=1}^n \lambda_i f(x_i)$
+
 \subsection*{Cramer Rao lower bound}
 $\mathrm{Var}[\hat{\theta}]\geq \mathcal{I}_n(\theta)^{-1}$\\
 $\mathcal{I}_n(\theta) = -\mathbb{E}[\frac{\partial^2 \mathrm{log}p[\mathcal{X}_n|\theta]}{\partial \theta^2}]$, $\hat{\theta}$ unbiased\\
