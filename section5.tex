@@ -143,7 +143,8 @@ joint feature map: $\mathbf{\psi}(z,\mathbf{y})$\\
 Scoring function: $f_{\mathbf{w}}(z,\mathbf{y})=\mathbf{w}^T\mathbf{\psi(z, \mathbf{y})}$\\
 Classify: $\hat{z}=h(\mathbf{y})=\argmax_{z\in\mathcal{K}}f_{\mathbf{w}(z, \mathbf{y})}$
 SVM objective:  $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-max_{z_i \neq z}w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq m$ \\
-with margin rescaling: $min_{w, \xi \geq 0} \frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i$ st. $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-max_{z \neq z_i}[\delta(z,z_i)+w^T\mathbf{\psi}(z,\mathbf{y_i})] \geq - \xi_i$
+with margin rescaling: $min_{w, \xi \geq 0} \frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i$ st. $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-\Delta(z,z_i)+
+-w^T\mathbf{\psi}(z,\mathbf{y_i})] \geq - \xi_i$ $\forall z \neq z_i$ $\forall i$
 
 \subsection*{Kernels}
 Similarity based reasoning\\
