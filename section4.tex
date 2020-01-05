@@ -23,7 +23,7 @@ $\hat{\mathcal{R}}(S(\mathcal{Z}))=\frac{1}{B}\sum_{b=1}^B\sum_{z_i\not\in\mathc
 \subsection*{Jackknife}
 Estimate of an estimator $\hat{S}_n$'s Bias.\\
 $\hat{S}^{JK}=\hat{S}_n-\mathrm{bias}^{JK}$ is JK Estimator.\\
-$\mathrm{bias}^{JK}{=}(n{-}1)(\tilde{S}_n{-}\hat{S}_m)$\\
+$\mathrm{bias}^{JK}{=}(n{-}1)(\tilde{S}_n{-}\hat{S}_n)$\\
 $\tilde{S}_n{=}\frac{1}{n}\sum_{i=1}^n\hat{S}_{n{-}1}^{-i}$ avg. LOO Estimator.
 Debiased est. can have big variance! This is not consistent, eg. if function is median\\
 \textbf{Bootstrap debiased}\\ $\bar{S}{=}2\hat{S}{-}\frac{1}{B}\sum_b\hat{S}^*(b)$

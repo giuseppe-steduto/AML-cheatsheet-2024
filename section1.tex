@@ -15,11 +15,13 @@ $\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$
 
 \subsection*{Conditional Probabilities \& Bayes}
 $\mathbb{P}[X|Y]=\frac{\mathbb{P}[X,Y]}{\mathbb{P}[Y]}=\frac{\mathbb{P}[Y|X]\mathbb{P}[X]}{\mathbb{P}[Y]}$
+$\rightarrow$ can be found by taking $\mathbb{P}[X,Y]$ and treating Y as a constant.
 
 \subsection*{Distributions}
 $\mathcal{N}(x|\mu, \sigma^2)=\frac{e^{-(x-\mu)^2/(2\sigma^2)}}{\sqrt{2\pi\sigma^2}}$\\
 $\mathcal{N}(x|\bm{\mu}, \bm{\Sigma})= \frac{e^{-\frac{1}{2}(\mathbf{x}-\bm{\mu})^T\bm{\Sigma}^{-1}(\mathbf{x}-\bm{\mu})}}{(2\pi)^{D/2}|\bm{\Sigma}|^{1/2}} $\\
-$\mathrm{Exp}(x|\lambda){=}\lambda e^{-\lambda x}$, $\mathrm{Ber}(x|\theta){=}\theta^x (1{-}\theta)^{(1-x)}$
+$\Sigma = \mathbb{E}[(x_i-\mu)(x_i-\mu)^T] = \mathbb{E}[x_ix_i^T]-\mu\mu^T \rightarrow \mathbb{E}[x_ix_i^T] = \Sigma + \mu \mu^T$ and for $i\neq j$ $\mathbb{E}[x_ix_j^T] = \mu\mu^T$
+Also useful: $\frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i\hat\mu^T] = \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathbb{E}[x_ix_j] $ $\mathrm{Ber}(x|\theta){=}\theta^x (1{-}\theta)^{(1-x)}$
 Sigmoid: $\sigma(x)=1/(1+e^{-x})$
 
 
@@ -43,15 +45,11 @@ $\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{x}^\top \mathbf{A}\mathbf{x}) = (\mathbf{A}^\top + \mathbf{A})\mathbf{x}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\mathbf{b}^\top \mathbf{A}\mathbf{x}) = \mathbf{A}^\top \mathbf{b}$ \quad
 $\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X} \mathbf{b}) = \mathbf{c}\mathbf{b}^\top$ \quad
-$\frac{\partial}{\partial \mathbf{X}}(\mathbf{c}^\top \mathbf{X}^\top \mathbf{b}) = \mathbf{b}\mathbf{c}^\top$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\| \mathbf{x}-\mathbf{b} \|_2) = \frac{\mathbf{x}-\mathbf{b}}{\|\mathbf{x}-\mathbf{b}\|_2}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\partial \mathbf{x}} (\mathbf{x}^\top \mathbf{x}) = 2\mathbf{x}$ \quad
 $\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$  \quad $\frac{\partial}{\partial \mathbf{x}}||\mathbf{x}||_1 = \frac{\mathbf{x}}{|\mathbf{x}|}$ \quad
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{Ax - b}\|_2^2) = \mathbf{2(A^\top Ax-A^\top b)}$ \quad
 $\frac{\partial}{\partial \mathbf{X}}(|\mathbf{X}|) = |\mathbf{X}|\cdot \mathbf{X}^{-1}$ \quad $\frac{\partial}{\partial x}(\mathbf{Y}^{-1}) = -\mathbf{Y}^{-1} \frac{\partial\mathbf{Y}}{\partial x} \mathbf{Y}^{-1}$
-$\mathbf{X}^T\mathbf{X}$: invertible if no non zero eigenvalues.
-
-
 \section*{Parametric Density Estimation}
 \subsection*{Maximum Likelihood (MLE)}
 Likelihood: $\mathbb{P}[\mathcal{X}|\theta]=\prod_{i\leq n}p(x_i|\theta)$\\
