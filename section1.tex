@@ -6,16 +6,16 @@ $\mathbb{E}_{X,Y}[f(X,Y)]=\mathbb{E}_{X}\mathbb{E}_{Y|X}[f(X,Y)|X]$
 % $\mathbb{E}_{Y|X}[f(X,Y)|X]{=}\int_\mathbb{R}f(X,y)\mathbb{P}(y|X)\di y$
 
 \subsection*{Variance \& Covariance}
-$\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}$ \\ $\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
-$\mathbb{V}[X+Y]{=}\mathrm{Var}[X]+\mathrm{Var}[Y]\quad X,Y \,\text{iid}$\\
-$\mathbb{V}(AX) = A \mathbb{V}(X) A^T$ \\
+$\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
+$\mathbb{V}[X+Y]{=}\mathrm{Var}[X]+\mathrm{Var}[Y] X,Y \,\text{iid} \quad
+\mathbb{V}(AX) = A \mathbb{V}(X) A^T$ 
 $\mathbb{V}[\alpha X]=\alpha^2\mathrm{Var}[X]$
 
 $\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$
 
 \subsection*{Conditional Probabilities \& Bayes}
 $\mathbb{P}[X|Y]=\frac{\mathbb{P}[X,Y]}{\mathbb{P}[Y]}=\frac{\mathbb{P}[Y|X]\mathbb{P}[X]}{\mathbb{P}[Y]}$
-$\rightarrow$ can be found by taking $\mathbb{P}[X,Y]$ and treating Y as a constant.
+$\rightarrow$ can be found by taking $\mathbb{P}[X,Y]$ take Y const.
 
 \subsection*{Distributions}
 $\mathcal{N}(x|\mu, \sigma^2)=\frac{e^{-(x-\mu)^2/(2\sigma^2)}}{\sqrt{2\pi\sigma^2}}$\\
@@ -23,12 +23,8 @@ $\mathcal{N}(x|\bm{\mu}, \bm{\Sigma})= \frac{e^{-\frac{1}{2}(\mathbf{x}-\bm{\mu}
 $\Sigma = \mathbb{E}[(x_i-\mu)(x_i-\mu)^T] = \mathbb{E}[x_ix_i^T]-\mu\mu^T \rightarrow \mathbb{E}[x_ix_i^T] = \Sigma + \mu \mu^T$ and for $i\neq j$ $\mathbb{E}[x_ix_j^T] = \mu\mu^T$
 Also useful: $\frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i\hat\mu^T] = \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathbb{E}[x_ix_j] $ $\mathrm{Ber}(x|\theta){=}\theta^x (1{-}\theta)^{(1-x)}$
 Sigmoid: $\sigma(x)=1/(1+e^{-x})$
-
-
 \subsection*{Chebyshev \& Consistency}
 $\mathbb{P}(|X-\mathbb{E}[X]|\geq \epsilon)\leq \frac{\mathbb{V}[X]}{\epsilon^2}$\\
-$\lim_{n\rightarrow\infty} P(|\hat{\mu}-\mu |>\epsilon)=0$
-
 \subsection*{Jensen Inequality}
 $f(\sum_{i=1}^n \lambda_i x_i) \leq \sum_{i=1}^n \lambda_i f(x_i)$
 
@@ -65,6 +61,7 @@ Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$
 
 \subsection*{Bayesian learning}
 $p(X=x|data) = \int p(x, \theta | data) d\theta = \int p(x|\theta)p(\theta|data)d\theta$
+Estimate gaussian: $X \sim \mathcal{N}(\mu, \sigma^2), P(\mu) \sim \mathcal{N}(\mu_0, \sigma_0^2)$ then $\sigma_n^2 = \frac{\sigma^2 \sigma_0^n}{n\sigma_0^2 + \sigma^2}, \mu_n = \frac{n\sigma_0^2}{n\sigma_0^2 + \sigma^2} \hat \mu_n + \frac{\sigma^2}{n\sigma_0^2 + \sigma^2}\mu_0$ with $\hat \mu_n = \frac{1}{n}\sum_{i=1}^n x_i$
 \subsection*{Bayesian density learning}
 Prior Knowledge of $p(\theta)$,\\
 Find Posterior Density: $p(\theta|\mathcal{X})$.\\
@@ -80,8 +77,8 @@ Frequentist method (MLE): does not allow priors, provides a single point when es
 \section*{Optimization}
 \subsection*{Gradient Descent}
 $\theta^{\mathrm{new}}\leftarrow\theta^{\mathrm{old}}-\eta\nabla_{\theta}\mathcal{L}$\\
-Convergence isn't guaranteed.\\
-Less zigzag by adding momentum: \\$\theta^{(l+1)}\leftarrow\theta^{(l)}-\eta\nabla_{\theta}\mathcal{L}+\mu(\theta^{l}-\theta^{(l-1)})$
+Conv. isn't guaranteed.
+Less zigzag by adding momentum: $\theta^{(l+1)}\leftarrow\theta^{(l)}-\eta\nabla_{\theta}\mathcal{L}+\mu(\theta^{l}-\theta^{(l-1)})$
 
 \subsection*{Newton's Method (opt. grad. descent)}
 Use 2nd order derivation. (Hessian)
