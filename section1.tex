@@ -61,7 +61,7 @@ Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$
 
 \subsection*{Bayesian learning}
 $p(X=x|data) = \int p(x, \theta | data) d\theta = \int p(x|\theta)p(\theta|data)d\theta$
-Estimate gaussian: $X \sim \mathcal{N}(\mu, \sigma^2), P(\mu) \sim \mathcal{N}(\mu_0, \sigma_0^2)$ then $\sigma_n^2 = \frac{\sigma^2 \sigma_0^n}{n\sigma_0^2 + \sigma^2}, \mu_n = \frac{n\sigma_0^2}{n\sigma_0^2 + \sigma^2} \hat \mu_n + \frac{\sigma^2}{n\sigma_0^2 + \sigma^2}\mu_0$ with $\hat \mu_n = \frac{1}{n}\sum_{i=1}^n x_i$
+Estimate gaussian: $X \sim \mathcal{N}(\mu, \sigma^2), P(\mu) \sim \mathcal{N}(\mu_0, \sigma_0^2)$ then $\sigma_n^2 = \frac{\sigma^2 \sigma_0^2}{n\sigma_0^2 + \sigma^2}, \mu_n = \frac{n\sigma_0^2}{n\sigma_0^2 + \sigma^2} \hat \mu_n + \frac{\sigma^2}{n\sigma_0^2 + \sigma^2}\mu_0$ with $\hat \mu_n = \frac{1}{n}\sum_{i=1}^n x_i$
 \subsection*{Bayesian density learning}
 Prior Knowledge of $p(\theta)$,\\
 Find Posterior Density: $p(\theta|\mathcal{X})$.\\
