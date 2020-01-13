@@ -94,7 +94,8 @@ pairwise: $X: O^{(1)} x O^{(1)} \rightarrow R^d$ \\
 polyadic data: $X: O^{(1)} x O^{(2)} x O^{(3)} \rightarrow R^d $ \\
 nominal = qualitative (sweet, sour ...), ordinal = absolute order of items, quantitative = numbers
 \section*{Risks and Losses}
-Expected Risk:\\ $R(\hat c) = \sum_{y \leq k}P(y)\mathbb{E}_{P(x|y)}[\mathbb{I}_{{\hat c(x) \neq y}}| Y = y]$
+Expected Risk:\\ $R(\hat c) = \sum_{y \leq  k}P(y)\mathbb{E}_{P(x|y)}[\mathbb{I}_{{\hat c(x) \neq y}}| Y = y]$ or 
+$R(\hat c) = P(\hat c (X) \neq c(X))$, c opt. class.
 
 Empirical Risk Minimizer (ERM) $\hat{f}$:\\
 $\hat{f} \in \argmin_{f \in \mathcal{C}} \hat{R}(\hat{f}, Z^{train})$\\
