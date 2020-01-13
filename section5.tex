@@ -137,11 +137,11 @@ Each sample \textbf{y} is assigned to a structured output label $z$\\
 Output Space Representation:\\
 joint feature map: $\mathbf{\psi}(z,\mathbf{y})$\\
 Scoring function: $f_{\mathbf{w}}(z,\mathbf{y})=\mathbf{w}^T\mathbf{\psi(z, \mathbf{y})}$\\
-Classify: $\hat{z}=h(\mathbf{y})=\argmax_{z\in\mathcal{K}}f_{\mathbf{w}(z, \mathbf{y})}$
+Classify: $\hat{z}=h(\mathbf{y})=\argmax_{z\in\mathbb{K}}f_{\mathbf{w}(z, \mathbf{y})}$
 SVM objective:  $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-max_{z_i \neq z}w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq m$ \\
 with margin rescaling: $min_{w, \xi \geq 0} \frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i$ st. $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-\Delta(z,z_i)
--w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq - \xi_i$ $\forall z \neq z_i$ $\forall i$
-
+-w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq - \xi_i$ $\forall z \neq z_i$ $\forall i$ \\
+lagrangian: let $\mathbb{K}_i = \mathbb{K} \backslash i$ \\ $\frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i - \sum_{i=1}^n \sum_{z_j \in \mathbb{K}_i} \alpha_{i,j} (w^T \psi(z_i, y_i)- \Delta (z_j, z_i) - w^T \psi(z_j,y_i)- \xi_i) - \sum_{i=1}^n \beta_i \xi_i$ with $\alpha_{i,j} \geq 0, \beta_i \geq 0$ \\
 \subsection*{Kernels}
 Similarity based reasoning\\
 Gram Matrix $K{=}K(\mathbf{x}_i, \mathbf{x}_j), 1{\leq} i,j{\leq} n$\\
