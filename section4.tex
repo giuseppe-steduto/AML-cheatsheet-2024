@@ -27,8 +27,8 @@ $\mathrm{bias}^{JK}{=}(n{-}1)(\tilde{S}_n{-}\hat{S}_n)$\\
 $\tilde{S}_n{=}\frac{1}{n}\sum_{i=1}^n\hat{S}_{n{-}1}^{-i}$ avg. LOO Estimator.
 Debiased est. can have big variance! This is not consistent, eg. if function is median\\
 \textbf{Bootstrap debiased}\\ $\bar{S}{=}2\hat{S}{-}\frac{1}{B}\sum_b\hat{S}^*(b)$
-
-\section*{Model selection}
-\textbf{Bayesian Information Criterion (BIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+k\log(n)$. Penalizes larger models (larger $k$ with more data $n$). Tendency to underfit.\\
-\textbf{Akaike Information Criterion (AIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2k$. Tendency to overfit.\\
-\textbf{Takeuchi Information Criterion (TIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2\text{Tr}(\mathcal{I}\mathcal{J}^{-1})$. \\ Correction of AIC if true model is not element of model class. If it is, they collapse to be the same.
+%
+%\section*{Model selection}
+%\textbf{Bayesian Information Criterion (BIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+k\log(n)$. Penalizes larger models (larger $k$ with more data $n$). Tendency to underfit.\\
+%\textbf{Akaike Information Criterion (AIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2k$. Tendency to overfit.\\
+%\textbf{Takeuchi Information Criterion (TIC)}: $-2\log\mathbb{P}(\mathcal{X}|\theta_k)+2\text{Tr}(\mathcal{I}\mathcal{J}^{-1})$. \\ Correction of AIC if true model is not element of model class. If it is, they collapse to be the same.
