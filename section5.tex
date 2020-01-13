@@ -67,20 +67,20 @@ $a_i^+ {\leftarrow} \alpha^{+\tilde{x}_i}a_i^+, a_i^- {\leftarrow} \alpha^{-\til
 $a_i^+ {\leftarrow} \alpha^{-\tilde{x}_i}a_i^+, a_i^- {\leftarrow} \alpha^{+\tilde{x}_i}a_i^-$ (class 2 err.)
 Exponential update.
 
-\subsection*{Fisher's Linear Discriminant Analysis}
-Maximize distance of the means of the projected classes to find projection plane separating them best.\\
-proj mean: $\tilde{\mu}_{\alpha}{=}\frac{1}{n_{\alpha}}\sum_{x\in\mathcal{X}_{\alpha}}w^Tx{=}w^T\mu_{\alpha}$\\
-Dist of proj means: $|w^T(\mu_1-\mu_2)|$
-Classes proj. cov: $\tilde{\Sigma}_1{+}\tilde{\Sigma}_2{=}w^T(\Sigma_1{+}\Sigma_2)w$\\
-Fishers Criterion:\\
-$J(w)=\frac{||\mu_1-\mu_2||^2}{\tilde{\Sigma}_1{+}\tilde{\Sigma}_2}=\frac{w^T(\mu_1-\mu_2)(\mu_1-\mu_2)^Tw}{w^T(\Sigma_1{+}\Sigma_2)w}$
-Fishers Crit for Multiple Classes:\\
-$J(W)=\frac{|W^TS_BW|}{W^TS_WW}$\\
-$S_B=\sum_{i=1}^kn_k(\mu_k-\mu)(\mu_k-\mu)^T$\\
-$S_W=\sum_{i=1}^k\sum_{x\in \mathcal{D}_i}(x-\mu_i)(x-\mu_i)^T$
+%\subsection*{Fisher's Linear Discriminant Analysis}
+%Maximize distance of the means of the projected classes to find projection plane separating them best.\\
+%proj mean: $\tilde{\mu}_{\alpha}{=}\frac{1}{n_{\alpha}}\sum_{x\in\mathcal{X}_{\alpha}}w^Tx{=}w^T\mu_{\alpha}$\\
+%Dist of proj means: $|w^T(\mu_1-\mu_2)|$
+%Classes proj. cov: $\tilde{\Sigma}_1{+}\tilde{\Sigma}_2{=}w^T(\Sigma_1{+}\Sigma_2)w$\\
+%5Fishers Criterion:\\
+%$J(w)=\frac{||\mu_1-\mu_2||^2}{\tilde{\Sigma}_1{+}\tilde{\Sigma}_2}=\frac{w^T(\mu_1-\mu_2)(\mu_1-\mu_2)^Tw}{w^T(\Sigma_1{+}\Sigma_2)w}$
+%Fishers Crit for Multiple Classes:\\
+%$J(W)=\frac{|W^TS_BW|}{W^TS_WW}$\\
+%$S_B=\sum_{i=1}^kn_k(\mu_k-\mu)(\mu_k-\mu)^T$\\
+%$S_W=\sum_{i=1}^k\sum_{x\in \mathcal{D}_i}(x-\mu_i)(x-\mu_i)^T$
 
-\textbf{LDA for Multiclasses}: 
-Reformulate as $(k-1)$ ``class $\alpha$ - not class $\alpha$'' dichotomies. But some area are ambiguous
+%\textbf{LDA for Multiclasses}: 
+%Reformulate as $(k-1)$ ``class $\alpha$ - not class $\alpha$'' dichotomies. But some area are ambiguous
 
 \subsection*{Support Vector Machine (SVM)}
 Generalize Perceptron with margin and kernel.
