@@ -3,7 +3,7 @@
 \newcommand\bmmax{0}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amsmath,bm}
+\usepackage{amsmath, bm}
 \usepackage{bbm}
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
@@ -32,6 +32,25 @@
 
 \DeclareMathOperator{\di}{d\!}
 
+% Reset weird mathptmx \mathcal symbols
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+% Hackeroni for smaller syms
+\newcommand{\smallsim}{\smallsym{\mathrel}{\sim}}
+
+\makeatletter
+\newcommand{\smallsym}[2]{#1{\mathpalette\make@small@sym{#2}}}
+\newcommand{\make@small@sym}[2]{%
+  \vcenter{\hbox{$\m@th\downgrade@style#1#2$}}%
+}
+\newcommand{\downgrade@style}[1]{%
+  \ifx#1\displaystyle\scriptstyle\else
+    \ifx#1\textstyle\scriptstyle\else
+      \scriptscriptstyle
+  \fi\fi
+}
+\makeatother
+% End hackeroni
 
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}

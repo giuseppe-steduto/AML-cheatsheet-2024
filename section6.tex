@@ -14,7 +14,8 @@ Requires diversity of the classifiers.
 \subsection*{Bagging}
 Train on bootstrapped subsets.\\
 Sample: $\mathcal{Z}=\{(x_1,y_1),\cdots(x_n,y_n)\}$\\
-$\mathcal{Z}^*$: chose i.i.d from $\mathcal{Z}$ w. replacement. Covariance small, variance similar, bias weakly affected.
+$\mathcal{Z}^*$: chose i.i.d from $\mathcal{Z}$ w. replacement.\\
+Covariance small, variance similar, bias weakly affected.
 
  \subsection*{Random Forest (Bagging strategy)}
  Collection of uncorr. decision trees.
@@ -31,7 +32,8 @@ $\epsilon_b=\sum_{i=1}^nw_i^{(b)}\mathbb{I}_{\{c_b(x_i)\not=y_i\}}/\sum_{i=1}^nw
 $\alpha_b = \mathrm{log}\frac{1-\epsilon_b}{\epsilon_b}>0$\\
 $w_i^{(b+1)}=w_i^{(b)}\mathrm{exp}(\alpha_i\mathbb{I}_{\{\hat{c_b(x_i)\not=y_i}\}})$\\
 return $\hat{c}_B(x){=}\mathrm{sgn}(\sum_{b{=}1}^B\alpha_bc_b(x))$\\
-Best approx. at log-odds ratio. Like stagewise-additive modeling.
+Best approx. at log-odds ratio. \\
+Like stagewise-additive modeling.
 
 \subsection*{Difference}
 (1) Boosting keeps identical training data, bagging potentially varies the training data for each classifier. (2) Boosting weighs the prediction of each classifier according to its accuracy, bagging gives same importance to each.
@@ -63,9 +65,11 @@ Shattering $s(\mathcal{A},n)$ is the score... For half-planes $s(\mathcal{A},2)=
 
 \section*{Nonparametric Bayesian methods}
 $\text{Beta}(x|a,b)=B(a,b)^{-1} x^{a-1}(1-x)^{b-1}$: prob. of Bernoulli proc. after observing $a-1$ success and $b-1$ failures. Expended to multivariate case with Dirichlet distr. That will give multivar. probs, \textit{based on finite} counts! But we don't know exactly which multivar. distribution works. With more data, we update the Dirichlet distribution. Is a conjugate prior.\\
-\textbf{Stick-breaking Dirichl. proc.}. Repeatedly draw from $\text{Beta}(x|1,\alpha)$ with fixed $\alpha$, but from reducing stick: $\rho_k=\beta_k(1-\sum_{i=1}^{k-1}\rho_i)$. The prior:\\
+\textbf{Stick-breaking Dirichl. proc.} \\ Repeatedly draw from $\text{Beta}(x|1,\alpha)$ with fixed $\alpha$, but from reducing stick: $\rho_k=\beta_k(1-\sum_{i=1}^{k-1}\rho_i)$. The prior:\\
 $\mathbb{P}[z_i=k|z_{-i},\alpha]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1} & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1} & \text{oth.}\end{cases}$. Final Gibbs sampler:\\
 $\mathbb{P}[z_i=k|z_{-i},\alpha,\mu]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1}p(x_i|x_{-i,k},\mu) & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1}p(x_i,\mu) & \text{oth.}\end{cases}$
 
 \subsection*{Gibbs sampling}
-Init: assign all data to a cluster, with prior $\pi_i$, with $\sum_{k=1}^K\pi_i<1$ (s.t. new clusters possible). E.g. with stick-breaking. Then remove $x$ from $k$ and compute new $\theta_k$, then compute Gibbs sampler prob. (CRP), and sample the new cluster assignment $z_i\sim p(z_i|x_{-i},\theta_k)$. If cluster is empty, remove it and decrease $K$.
+Init: assign all data to a cluster, with prior $\pi_i$, with $\sum_{k=1}^K\pi_i<1$ (s.t. new clusters possible). E.g. with stick-breaking. \\
+Then remove $x$ from $k$ and compute new $\theta_k$, then compute Gibbs sampler prob. (CRP), and sample the new cluster assignment $z_i\sim p(z_i|x_{-i},\theta_k)$. If cluster is empty, \\
+remove it and decrease $K$.
