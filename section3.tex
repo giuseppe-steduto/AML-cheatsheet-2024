@@ -5,13 +5,14 @@ Transformation $h_m(\mathbf{X}):\mathbb{R}^d \rightarrow \mathbb{R}$
 
 
  \subsection*{Cubic Spline}
- e.g. for d=1 with knots at $\xi_1$ and $\xi_2$\\
- $h_1(X){=}1\quad h_3(X){=}X^2\quad h_5(X){=}(X{-}\xi_1)^3_+$
- $h_2(X){=}X\quad h_4(X){=}X^3\quad h_6(X){=}(X{-}\xi_2)^3_+$
+ e.g. for $d=1$ with knots at $\xi_1$ and $\xi_2$\\
+ $h_1(X){=}1\ \ \ h_3(X){=}X^2\ \ \ h_5(X){=}(X{-}\xi_1)^3_+$ \ \ \
+ $h_2(X){=}X \quad h_4(X){=}X^3\ \ \ h_6(X){=}(X{-}\xi_2)^3_+$
 
  \subsection*{Smoothing Spline}
- Add penalty for second derivative: 
- $RSS(f, \lambda) = \sum_{n=1}^n (y_i-f(x_i))^2 + \lambda\int (f''(x))^2 dx$
+ Add penalty for second deriv.:  
+ $RSS(f, \lambda) {=}$
+ $ \sum_{n=1}^n (y_i-f(x_i))^2 + \lambda\int (f''(x))^2 dx$
 \subsection*{Wavelets}
  Functions that measure local properties of the underlying data. Keep the most important ones and get rid of the noise.
 
@@ -51,7 +52,7 @@ $P(\begin{bmatrix}
 \Sigma_{11} & \Sigma_{12} \\
 \Sigma_{21} & \Sigma_{22}\\
 \end{bmatrix})$\\
- $p(\mathbf{a_1}|\mathbf{a_2} = z) = \mathcal{N}(\mathbf{a_2}|\mathbf{u}+\Sigma_{21} \Sigma_{11}^{-1}(\mathbf{z}-\mathbf{u_1}, \Sigma_{22}- \Sigma_{21} \Sigma_{11}^{-1} \Sigma_{12})$
+ $p(\mathbf{a_1}|\mathbf{a_2} = z) =  \mathcal{N}(\mathbf{a_2}|\mathbf{u}+\Sigma_{21} \Sigma_{11}^{-1}(\mathbf{z}-\mathbf{u_1}, \Sigma_{22}- \Sigma_{21} \Sigma_{11}^{-1} \Sigma_{12})$
 
 
 \section*{Bias-Variance tradeoff}
