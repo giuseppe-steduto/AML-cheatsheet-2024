@@ -46,7 +46,7 @@ $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{x}\|^2_2) = \frac{\partial}{\par
 $\frac{\partial}{\partial \mathbf{X}}(\|\mathbf{X}\|_F^2) = 2\mathbf{X}$  \quad \quad
 $\frac{\partial}{\partial \mathbf{x}}||\mathbf{x}||_1 = \frac{\mathbf{x}}{|\mathbf{x}|}$ \\
 $\frac{\partial}{\partial \mathbf{x}}(\|\mathbf{Ax - b}\|_2^2) = \mathbf{2(A^\top Ax-A^\top b)}$ \quad
-$\frac{\partial}{\partial \mathbf{X}}(|\mathbf{X}|) = |\mathbf{X}|\cdot \mathbf{X}^{-1}$ \\
+$\frac{\partial}{\partial \mathbf{X}}(|\mathbf{X}|) = |\mathbf{X}|\cdot \mathbf{X}^{-1}$ $\quad |X| = 1 / |X^{-1}|$\\
 $\frac{\partial}{\partial x}(\mathbf{Y}^{-1}) = -\mathbf{Y}^{-1} \frac{\partial\mathbf{Y}}{\partial x} \mathbf{Y}^{-1}$
 \section*{Parametric Density Estimation}
 \subsection*{Maximum Likelihood (MLE)}
@@ -76,7 +76,7 @@ $p(\theta|\mathcal{X}^n)=\frac{p(x_n|\theta)p(\theta|\mathcal{X}^{n-1})}{\int p(
 
 \subsection*{Frequentist vs Bayesian}
 Bayes (MAP): allows priors, provides distribution when estimating parameters, requires efficient integration methods when computing posteriors, prior often induces regularization term \\
-Frequentist method (MLE): does not allow priors, provides a single point when estimating parameters, requires only differentiation methods, MLE estimators are consistent, equivariant, asymptotically normal, asymptotically efficient. 
+Frequentist method (MLE): does not allow priors, provides a single point when estimating parameters, requires only differentiation methods, MLE estimators are consistent, equivariant, asymptotically normal, asymptotically efficient (for finite samples not necessarily efficient). 
 
 \section*{Optimization}
 \subsection*{Gradient Descent}
@@ -99,6 +99,11 @@ pairwise: $X: O^{(1)} x O^{(1)} \rightarrow \mathbb{R}^d$ \\
 polyadic data: $X: O^{(1)} x O^{(2)} x O^{(3)} \rightarrow \mathbb{R}^d $ \\
 nominal = qualitative (sweet, sour ...), ordinal = absolute order of items, quantitative = numbers
 \section*{Risks and Losses}
+%Conditional Expected Risk:\\
+%$R(f, X) = \int_\mathcal{Y} Q(Y, f(X)) P(Y|X)dY$ \\
+%where $Q(Y,f(X))$ is the loss function.\\
+%Total Expected Risk:\\
+%$R(f) = \mathbb{E}_\mathcal{X}[R(f, X)]$
 Expected Risk:\\ $R(\hat c) = \sum_{y \leq  k}P(y)\mathbb{E}_{P(x|y)}[\mathbb{I}_{{\hat c(x) \neq y}}| Y = y]$ or 
 $R(\hat c) = P(\hat c (X) \neq c(X))$, c opt. class.
 
