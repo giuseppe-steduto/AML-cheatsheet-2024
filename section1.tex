@@ -59,8 +59,8 @@ Consistent: converges to best $\theta_0$.
 Assume prior $\mathbb{P}(\theta)$\\
 Find: $\hat{\theta}\in \argmax_\theta P(\theta|\mathcal{X})$\\
 $\quad \quad \quad =\argmax_\theta P(\mathcal{X}|\theta)P(\theta)$\\
-Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$
-
+Solve $\nabla_\theta log P(\mathcal{X}|\theta)P(\theta)=0$\\
+Note:  $ P(\mathcal{Y}|\mathcal{X}, \beta) \sim \mathcal{N}(X^T\beta, \sigma^2) \rightarrow \argmax_\theta log(P(\mathcal{Y}|\mathcal{X}, \beta)) =  \argmax_\theta -\frac{1}{2\sigma^2}||Y-X^T\beta||^2$
 \subsection*{Bayesian learning}
 $p(X=x|data) = \int p(x, \theta | data) d\theta = \int p(x|\theta)p(\theta|data)d\theta$ \\
 Estimate gaussian: $X \sim \mathcal{N}(\mu, \sigma^2),$ \\
