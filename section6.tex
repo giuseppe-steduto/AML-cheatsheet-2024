@@ -28,15 +28,16 @@ Coeff. of $\hat{c}_{b+1}$ depend on $\hat{c}_{b}$'s results\\
 \textbf{AdaBoost} (minimizes exp. loss)\\
 Init: $\mathcal{X}{=}\{(x_1,y_1),\cdots,(x_n,y_n)\}, w_i^{(1)}{=}\frac{1}{n}$\\
 Fit  $\hat{c}_b(x)$ to $\mathcal{X}$ weighted by $w^{(b)}$\\
-$\epsilon_b=\sum_{i=1}^nw_i^{(b)}\mathbb{I}_{\{c_b(x_i)\not=y_i\}}/\sum_{i=1}^nw_i^{(b)}$\\
+$\epsilon_b=\sum_{i=1}^nw_i^{(b)}\mathbb{I}_{\{\hat c_b(x_i)\not=y_i\}}/\sum_{i=1}^nw_i^{(b)}$\\
 $\alpha_b = \mathrm{log}\frac{1-\epsilon_b}{\epsilon_b}>0$\\
-$w_i^{(b+1)}=w_i^{(b)}\mathrm{exp}(\alpha_i\mathbb{I}_{\{\hat{c_b(x_i)\not=y_i}\}})$\\
-return $\hat{c}_B(x){=}\mathrm{sgn}(\sum_{b{=}1}^B\alpha_bc_b(x))$\\
+$w_i^{(b+1)}=w_i^{(b)}\mathrm{exp}(\alpha_b\mathbb{I}_{\{{\hat c_b(x_i)\not=y_i}\}})$\\
+return $\hat{c}_B(x){=}\mathrm{sgn}(\sum_{b{=}1}^B\alpha_b \hat c_b(x))$\\
 Best approx. at log-odds ratio. \\
 Like stagewise-additive modeling.
 
 \subsection*{Difference}
 (1) Boosting keeps identical training data, bagging potentially varies the training data for each classifier. (2) Boosting weighs the prediction of each classifier according to its accuracy, bagging gives same importance to each.
+
 \subsection*{Notes}
 AdaBoost gives large weight to samples that are hard to classify: those could be outliers. For bagging, there is a chance that imbalanced data-sets lead to bootstrap samples missing a class alltogether. Fix by making the bootstrap size large enough s.t. at least one point is included.
 \subsection*{Logistic Regression}
