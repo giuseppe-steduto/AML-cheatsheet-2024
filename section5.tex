@@ -129,8 +129,10 @@ E.g solve the XOR Problem with: \\
 $K(x,y)=(1+x_1y_1+x_2y_2)^2$
 
 \subsection*{Multiclass SVM}
-$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define the margin $m$ s.t.:\\
-$(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-\max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq m, \forall {\mathbf{y}_i\in \mathcal{Y}}$
+$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem:\\
+$min_w \frac{1}{2}w^Tw = min_{{w_z}_{n=1}^M} \sum_{z=1}^M w_z^Tw_z$
+$(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-\max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq 1, \forall {\mathbf{y}_i\in \mathcal{Y}}$ \\
+classification: $\hat z = argmax_z (w_z^Ty + w_{z,0})$
 
 \subsection*{Structured SVM}
 Each sample \textbf{y} is assigned to a structured output label $z$\\

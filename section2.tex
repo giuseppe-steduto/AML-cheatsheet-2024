@@ -28,8 +28,8 @@ variance of all unbiased estimates.\\
 $\mathcal{L} = (\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)+\lambda\beta^T\beta$\\
 \textbf{Solution:} differentiate $\mathcal{L}$ w.r.t $\beta$\\
 $\hat{\beta}^\text{ridge} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbb{I})^{-1}\mathbf{X}^{T}\mathbf{y}$ \\
-\textbf{Bayesian view:} $Y|(X, \beta) \smallsim \mathcal{N}(x^T\beta, \sigma^2 I)$\\
-$ \beta \smallsim \mathcal{N}(0, \sigma^2/\lambda*I)$
+\textbf{Bayesian view:} $Y|(X, \beta) \smallsim \mathcal{N}(X^T\beta, \sigma^2)$\\
+$ \beta \smallsim \mathcal{N}(0, \sigma^2/\lambda)$
 
 \subsection*{(3) Lasso ($L^1$ penalty)}
 \textbf{Setting:} Penalize full $\beta$.\\
