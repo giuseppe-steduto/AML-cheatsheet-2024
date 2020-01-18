@@ -46,23 +46,30 @@ $P(y=1|x) = \frac{exp(F(x)}{1+exp(F(x))}$
 
 \section*{PAC learning}
 \subsection*{Function of interest}
-The probability of large excess error:\\
+\textbf{The probability of large excess error:}\\
 $\mathbb{P}[misclassification|C]< \delta$.\\
-But: could be unlucky with $C$, $c^\text{Bayes}$ not in hypoth. class, $\mathbb{P}[\dots]$ is a r.v., not scalar quality measure. Strat: average.
-$\mathbb{P}[\mathcal{R}(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c)>\epsilon]<1-\delta$. Where $\mathcal{R}[\hat{c}]$ is the generalization error of the trained class., should not exceed the min. generalization error achievable by more than $\epsilon$.
-Leads to:\\
-$\sum_{c\in\mathcal{C}}\mathbb{P}[\lvert \hat{\mathcal{R}}_n(c)-\mathcal{R}(c)\rvert>\epsilon]\leq 2Ne^{-2n\epsilon^2}$. %Def RHS$=\delta$: $\epsilon=\sqrt{\frac{\log N - \log(\delta/2)}{2n}}$. 
-For $N$ the size of hypothesis class, and for $n$ the num. of samples. The expected error of $c$ thus depends on $1/\sqrt{n}$ and $\log N$!
+But: could be unlucky with $C$, $c^\text{Bayes}$ not in hypoth. class.
+$\mathbb{P}[\mathcal{R}(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c)>\epsilon]<1-\delta$.\\
+Def RHS$=\delta$: $\epsilon=\sqrt{\frac{\log N - \log(\delta/2)}{2n}}$. 
+$N =$ size of hypothesis class, $n =$ num. of samples.expected error of $c$ depends on $1/\sqrt{n}$ and $\log N$!\\
+\textbf{for any class $\mathcal{C}$:} $\mathcal{R}_n(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c) \leq 2\sup_{c\in\mathcal{C}}\lvert \hat{\mathcal{R}}_n(c) - \mathcal{R}(c) \rvert$ \\
+\textbf{for finite class:}
+$\mathbb{P}[2\sup_{c\in\mathcal{C}}\lvert \hat{\mathcal{R}}_n(c) - \mathcal{R}(c) \rvert>\epsilon]\leq 2\lvert\mathcal{C}\rvert e^{-\frac{1}{2}n\epsilon^2}$.
 \subsection*{Rectangle learning}
 Pick tight rectangle. Diff. between picked rectangle $\hat{R}$ and true $R$ with few examples. Rectangles are \textbf{efficiently PAC learnable}: runs in polynom. $1/\epsilon$ (error param.) and $1/\delta$ (confidence val.).
 \subsection*{Hyperplane learning}
 Hypothesis: $\sum_{i=1}^d a_ix_i + a_0$ (all possible hyperplanes through $d$-dim vector) has \#-of-possible-classifiers $2\binom{n}{d}$. In class: the classifiers $c$ and $\hat{c}$ differ for no more than $d$ data points on a plane, IF found with ERM: $\forall_{c\in\mathcal{C}} \hat{\mathcal{R}}_n(c) \geq \hat{\mathcal{R}}_n(\hat{c}) - \frac{d}{n}$.
 \subsection*{VC dimension}
-How effectively a classifier (e.g., interval, unions of intervals, circles) can select subsets. Classifying with a closed iterval: $V_C=2$, for you cannot select the begin-point and end-point but not middle point! For unions, $V_c=2k$, for unit circles $V_c=3$, for finite-dimensional vector space $V_c\leq\dim(\mathcal{G})$.
-\subsection*{From practical}
-$\mathcal{R}_n(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c) \leq 2\sup_{c\in\mathcal{C}}\lvert \hat{\mathcal{R}}_n(c) - \mathcal{R}(c) \rvert$ for any class $\mathcal{C}$. Finite class:
-$\mathbb{P}[2\sup_{c\in\mathcal{C}}\lvert \hat{\mathcal{R}}_n(c) - \mathcal{R}(c) \rvert>\epsilon]\leq 2\lvert\mathcal{C}\rvert e^{-2n\epsilon^2}$.
-Shattering $s(\mathcal{A},n)$ is the score... For half-planes $s(\mathcal{A},2)=4$, $s(\mathcal{A},3)=8$, \dots. For triangles $s(\mathcal{A},2)=4,s(\mathcal{A},3)=8,s(\mathcal{A},4)=16$, powers.
+If you can find a set of n points, so that it can be shattered by the classifier (i.e. classify all possible $2^n$ labelings correctly) and you cannot find any set of n+1
+ points that can be shattered  then the VC dimension is n. \\
+ \textbf{Examples:}
+$(-\infty, a] =1$ 
+all intervals in R: $V_C=2$
+For unions of k intervals, $V_c=2k$
+half planes in $R^2$: $3$
+for unit circles $V_c=3$
+convex polygons in $R^2$: $\infty$
+convex polygons in $R^2$ with at most k vertices: $2k+1$
 
 \section*{Nonparametric Bayesian methods}
 $\text{Beta}(x|a,b)=B(a,b)^{-1} x^{a-1}(1-x)^{b-1}$: prob. of Bernoulli proc. after observing $a-1$ success and $b-1$ failures. Expended to multivariate case with Dirichlet distr. That will give multivar. probs, \textit{based on finite} counts! But we don't know exactly which multivar. distribution works. With more data, we update the Dirichlet distribution. Is a conjugate prior.\\
