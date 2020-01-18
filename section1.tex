@@ -20,9 +20,6 @@ $\rightarrow$ can be found by taking $\mathbb{P}[X,Y]$ take Y const.
 \subsection*{Distributions}
 $\mathcal{N}(x|\mu, \sigma^2)=\frac{e^{-(x-\mu)^2/(2\sigma^2)}}{\sqrt{2\pi\sigma^2}}$\\
 $\mathcal{N}(x|\bm{\mu}, \bm{\Sigma})= \frac{e^{-\frac{1}{2}(\mathbf{x}-\bm{\mu})^T\bm{\Sigma}^{-1}(\mathbf{x}-\bm{\mu})}}{(2\pi)^{D/2}|\bm{\Sigma}|^{1/2}} $\\
-$\Sigma = \mathbb{E}[(x_i-\mu)(x_i-\mu)^T] = \mathbb{E}[x_ix_i^T]-\mu\mu^T \rightarrow \mathbb{E}[x_ix_i^T] = \Sigma + \mu \mu^T$ and for $i\neq j$ $\mathbb{E}[x_ix_j^T] = \mu\mu^T$
-Also useful: $\frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i\hat\mu^T] = \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathbb{E}[x_ix_j] $ $\mathrm{Ber}(x|\theta){=}\theta^x (1{-}\theta)^{(1-x)}$ \\
-Sigmoid: $\sigma(x)=1/(1+e^{-x})$
 \subsection*{Chebyshev \& Consistency}
 $\mathbb{P}(|X-\mathbb{E}[X]|\geq \epsilon)\leq \frac{\mathbb{V}[X]}{\epsilon^2}$\\
 \subsection*{Jensen Inequality}
@@ -53,7 +50,15 @@ $\frac{\partial}{\partial x}(\mathbf{Y}^{-1}) = -\mathbf{Y}^{-1} \frac{\partial\
 Likelihood: $\mathbb{P}[\mathcal{X}|\theta]=\prod_{i\leq n}p(x_i|\theta)$\\
 Find: $\hat{\theta}\in \argmax_\theta \mathbb{P}[\mathcal{X}|\theta]$\\
 Procedure: solve $\nabla_\theta \log \mathbb{P}[\mathcal{X}|\theta]\equiv 0$\\
-Consistent: converges to best $\theta_0$.
+Consistent: converges to best $\theta_0$\\
+\textbf{MLE for gaussian:}\\ 
+1) $\mathcal{L} \propto Nlog|\Sigma| + \sum_{i}^N(x_i-\mu)^T\Sigma^{-1}(x_i-\mu)$ \\
+2) $\hat \mu = \frac{1}{N}\sigma_i^N x_i $ \\
+3)Trick: derive wrt. $\Sigma^{-1}\rightarrow\hat \Sigma = \frac{1}{N} \sum_i^N(x_i-\mu)(x_i-\mu)^T$ \\
+4) Show $\hat \Sigma $ is biased:$\mathbb{E}(\hat \Sigma) = \frac{1}{N} \sum_i^N \mathbb{E}(x_ix_i^T) -\frac{1}{N^2}\sum_i^N\sum_j^N \mathbb{E}(x_ix_j^T)-\frac{1}{N^2}\sum_i^N\sum_j^N \mathbb{E}(x_ix_j^T) +\frac{1}{N^2}\sum_i^N\sum_j^N \mathbb{E}(x_ix_j^T) = \frac{1}{N} \sum_i^N \mathbb{E}(x_ix_i^T) -\frac{1}{N^2}\sum_i^N\sum_j^N \mathbb{E}(x_ix_j^T) = \frac{1}{N}N(\Sigma+\mu \mu^T)- \frac{1}{N^2}(N^2\mu \mu^T+N\Sigma)= \Sigma-\frac{1}{N}\Sigma \neq \Sigma$
+\textbf{Tricks used here:}\\
+$\Sigma = \mathbb{E}[(x_i-\mu)(x_i-\mu)^T] = \mathbb{E}[x_ix_i^T]-\mu\mu^T \rightarrow \mathbb{E}[x_ix_i^T] = \Sigma + \mu \mu^T$ and for $i\neq j$ $\mathbb{E}[x_ix_j^T] = \mu\mu^T$
+Also useful: $\frac{1}{N} \sum_{i=1}^N \mathbb{E}[x_i\hat\mu^T] = \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathbb{E}[x_ix_j] $
 
 \subsection*{Maximum A Posteriori (MAP)}
 Assume prior $\mathbb{P}(\theta)$\\
