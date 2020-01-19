@@ -1,11 +1,11 @@
 \section*{Linear Regression}
-\textbf{Model}:
-$\mathbf{Y}=\mathbf{X}^T\beta \\
+\textbf{Model of data}:
+$\mathbf{Y}=\mathbf{X}^T\beta +\epsilon \\
 \mathbf{X}\in\mathbb{R}^{(d+1)\times n}, \beta \in \mathbb{R}^{d+1}$\\
-additive Gaussian noise $\epsilon \sim \mathcal{N}(0,\sigma^2)$\\
-$\hat{y}=\mathbf{X}\hat{\beta}+\epsilon$ \quad
-$\hat{\beta} \sim \mathcal{N}(\beta, (\mathbf{X}^T\mathbf{X})^{-1}\sigma^2) $ and 
-$p(Y|X,\beta, \sigma) \sim \mathcal{N}(Y|X^T\beta, \sigma^2)$
+additive Gaussian noise $\epsilon \sim \mathcal{N}(\mathbf{0},\mathbb{I}\sigma^2)$\\
+$\hat{\mathbf{Y}}=\mathbf{X}\hat{\beta}$ \quad
+$\hat{\beta} \sim \mathcal{N}(\beta, (\mathbf{X}^T\mathbf{X})^{-1}\sigma^2) $ \\
+and $p(\mathbf{Y}|\mathbf{X},\beta, \sigma^2) = \mathcal{N}(\mathbf{Y}|\mathbf{X}^T\beta, \mathbb{I}\sigma^2)$
 
 % A Regression has Optimum:\\
 % $f^*(x) = \mathbb{E}_Y[Y|X=x]$
@@ -13,7 +13,7 @@ $p(Y|X,\beta, \sigma) \sim \mathcal{N}(Y|X^T\beta, \sigma^2)$
 
 \subsection*{(1) Ordinary Least Squares}
 \textbf{Setting}: Minimize RSS.\\
-$\mathcal{L} = \text{RSS}(\beta)=\sum_{i=1}^n(y_i-x_i^T\beta)^2=$\\
+$\mathcal{L} = \text{RSS}(\beta)=\sum_{i=1}^n(y_i-x_i^T\beta)^2$\\
 $=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)$\\
 % $X\in\mathbb{R}^{n\times(d+1)}, y\in\mathbb{R}^n,  \beta\in\mathbb{R}^{d+1}$\\
 \textbf{Solution:} differentiate $\mathcal{L}$ w.r.t $\beta$\\

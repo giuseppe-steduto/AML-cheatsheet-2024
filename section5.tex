@@ -87,7 +87,7 @@ Generalize Perceptron with margin and kernel.
 Find plane that max. margin $m$ s.t.:\\
 $z_ig(\mathbf{y})=z_i(\mathbf{w}^T\mathbf{y}+w_0)\geq m,\forall \mathbf{y}_i \in \mathcal{Y}$\\
 $z_i \in \{-1,+1\}\quad \mathbf{y_i} = \phi(\mathbf{x_i})$\\
-Vectors $\mathbf{y}_i$ are the support vectors \\
+Vectors $\mathbf{y}_i$ are the support vectors \\ \\
 \textbf{Functional Margin Problem}:\\
 minimizes $||\mathbf{w}||$ for $m{=}1$: 
 $L(\mathbf{w}, w_0, \mathbf{\alpha}) {=}$\\
@@ -129,9 +129,10 @@ E.g solve the XOR Problem with: \\
 $K(x,y)=(1+x_1y_1+x_2y_2)^2$
 
 \subsection*{Multiclass SVM}
-$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem:\\
-$min_w \frac{1}{2}w^Tw = min_{{w_z}_{n=1}^M} \sum_{z=1}^M w_z^Tw_z$
-$(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-\max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq 1, \forall {\mathbf{y}_i\in \mathcal{Y}}$ \\
+$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem: $\quad(\mathbf{w} \text{ is stacked})$\\
+$min_w \frac{1}{2}w^Tw = min_{\{w_z\}_{n=1}^M} \sum_{z=1}^M w_z^Tw_z$ \\
+s.t. $(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-$\\
+$\quad \ \ \max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq 1, \forall {\mathbf{y}_i\in \mathcal{Y}}$ \\
 classification: $\hat z = argmax_z (w_z^Ty + w_{z,0})$
 
 \subsection*{Structured SVM}
@@ -161,4 +162,4 @@ RBF(Gauss):\\
 $K(\mathbf{x},\mathbf{x'}){=}\mathrm{exp}(-||\mathbf{x}{-}\mathbf{x'}||_2^2/h^2)$\\
 Sigmoid: $K(\mathbf{x},\mathbf{x'}){=}\mathrm{tanh}(\alpha\mathbf{x}^T\mathbf{x'}+c)$\\
 not p.s-d e.g: $\mathbf{x}{=}[1,-1], \mathbf{x'}{=}[-1,2]$ \\
-Size of feature space for kernel $(c+x*y)^d$, $x,y \in R^N$: (n+d choose d)
+Size of feature space for kernel $(c+x*y)^d$, $x,y \in \mathbb{R}^N$: (n+d choose d)
