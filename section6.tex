@@ -48,9 +48,9 @@ $P(y=1|x) = \frac{exp(F(x)}{1+exp(F(x))}$
 \subsection*{Function of interest}
 \textbf{The probability of large excess error:}\\
 $\mathbb{P}[misclassification|C]< \delta$.\\
-But: could be unlucky with $C$, $c^\text{Bayes}$ not in hypoth. class.
+But: could be unlucky with $C$, $c^\text{Bayes}$ not in hypoth. class. \\
 $\mathbb{P}[\mathcal{R}(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c)>\epsilon]<1-\delta$.\\
-Def RHS$=\delta$: $\epsilon=\sqrt{\frac{\log N - \log(\delta/2)}{2n}}$. 
+Def R.H.S.$=\delta$: $\epsilon=\sqrt{\frac{\log N - \log(\delta/2)}{2n}}$. \\
 $N =$ size of hypothesis class, $n =$ num. of samples.expected error of $c$ depends on $1/\sqrt{n}$ and $\log N$!\\
 \textbf{for any class $\mathcal{C}$:} $\mathcal{R}_n(\hat{c})-\inf_{c\in\mathcal{C}}\mathcal{R}(c) \leq 2\sup_{c\in\mathcal{C}}\lvert \hat{\mathcal{R}}_n(c) - \mathcal{R}(c) \rvert$ \\
 \textbf{for finite class:}
@@ -74,8 +74,9 @@ convex polygons in $R^2$ with at most k vertices: $2k+1$
 \section*{Nonparametric Bayesian methods}
 $\text{Beta}(x|a,b)=B(a,b)^{-1} x^{a-1}(1-x)^{b-1}$: prob. of Bernoulli proc. after observing $a-1$ success and $b-1$ failures. Expended to multivariate case with Dirichlet distr. That will give multivar. probs, \textit{based on finite} counts! But we don't know exactly which multivar. distribution works. With more data, we update the Dirichlet distribution. Is a conjugate prior.\\
 \textbf{Stick-breaking Dirichl. proc.} \\ Repeatedly draw from $\text{Beta}(x|1,\alpha)$ with fixed $\alpha$, but from reducing stick: $\rho_k=\beta_k(1-\sum_{i=1}^{k-1}\rho_i)$. The prior:\\
-$\mathbb{P}[z_i=k|z_{-i},\alpha]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1} & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1} & \text{oth.}\end{cases}$. Final Gibbs sampler:\\
-$\mathbb{P}[z_i=k|z_{-i},\alpha,\mu]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1}p(x_i|x_{-i,k},\mu) & \text{exist. }K \\ \frac{\alpha}{\alpha+N-1}p(x_i,\mu) & \text{oth.}\end{cases}$
+$\mathbb{P}[z_i=k|z_{-i},\alpha]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1} & \text{existing }k \\ \frac{\alpha}{\alpha+N-1} & \text{otherwise}\end{cases}$ \\
+Final Gibbs sampler:\\
+$\mathbb{P}[z_i=k|z_{-i},\alpha,\mu]=\begin{cases}\frac{N_{k,-i}}{\alpha+N-1}p(x_i|x_{-i,k},\mu) & \text{existing }k \\ \frac{\alpha}{\alpha+N-1}p(x_i,\mu) & \text{otherwise}\end{cases}$
 
 \subsection*{Gibbs sampling}
 Init: assign all data to a cluster, with prior $\pi_i$, with $\sum_{k=1}^K\pi_i<1$ (s.t. new clusters possible). E.g. with stick-breaking. \\
