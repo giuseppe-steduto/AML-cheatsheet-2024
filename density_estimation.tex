@@ -1,0 +1,12 @@
+\section*{Parametric Density Estimation}
+\subsection*{Estimators}
+Consistent: $\hat{\theta}\rightarrow\theta_0$ for $n\rightarrow\infty$\\
+Equiv.: $\hat{\theta} \mathrm{MLE}(\theta_0) \Rightarrow g(\hat{\theta}) \mathrm{MLE}(g(\theta_0))$ \\
+A. normal: $\hat{\theta}\sim\mathcal{N}(\theta_0, \hat{se}(\hat{\theta})^2)$, $n\rightarrow\infty$\\
+A. eff.: minim. $\mathbb{E}[(\hat{\theta} - \theta_0)^2]$ for $n\rightarrow\infty$\\
+MLE is all of the above. \\
+
+\subsection*{Bayesian learning with Gaussian}
+$p(\theta|\mathcal{X}) \propto p(\mathcal{X}|\theta)p(\theta) $, keep only numerat. di $p(\theta)$, \\
+$p(\theta|\mathcal{X}) \propto \mathcal{N}(\theta|\frac{n}{n+1}\bar{X}+\frac1{n+1}\mu_0, \frac1{n+\sigma_0^{-2}})$
+    
