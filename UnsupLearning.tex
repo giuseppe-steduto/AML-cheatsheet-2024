@@ -1,0 +1,6 @@
+\section*{Unsupervised Learning}
+\subsection*{EM for GMM}
+Iteratively and approx solve $\theta^*=\argmax_\theta \max_z p(\mathcal X, \mathcal Z|\theta)$\\
+\textbf{E step:} Respons. $\gamma_{ik}=\frac{\pi_k\mathcal N(x_i|\mu_k,\Sigma_k)}{\sum_j\pi_j\mathcal N(x_i|\mu_j,\Sigma_j)}$
+\textbf{M step:} Update Probs $\pi_k=\frac{N_k}{N}$, Means $\mu_k=\frac{1}{N_k}\sum_i\gamma_{ik}x_i$, Vars $\Sigma_k=\frac{1}{N_k}\sum_i\gamma_{ik}(x_i-\mu_k)(x_i-\mu_k)^T$\\
+\subsection*{KMeans:} Assignment $z_i=\argmin_k ||x_i-\mu_k||^2$, Update centroids $\mu_k=\frac{1}{N_k}\sum_{i:z_i=k} x_i$

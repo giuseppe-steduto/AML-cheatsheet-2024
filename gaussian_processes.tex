@@ -1,0 +1,19 @@
+\section*{Gaussian Processes}
+
+\subsection*{Gaussian Process Regression}
+joint Gaussian over all outputs\\
+$\mathbf{y}=\mathbb{X}\beta+\epsilon \quad \epsilon\sim \mathcal{N}(0,\sigma^2 \mathbb{I}_n)$, ossia\\
+$\mathcal{N}(\begin{bmatrix}
+\mathbf{y}\\
+y_*\\
+\end{bmatrix}|\mathbf{0},\begin{bmatrix}
+\mathbf{K}+\sigma^2\mathbb{I} & \mathbf{k} \\
+\mathbf{k^T} & k(x_*,x_*) + \sigma^2\\
+\end{bmatrix})$\\
+$k(x_i,x_j):=x_i^\top\Lambda^{-1}x_j$,$ \mathbb{E}_{\beta}\left[\beta\beta^\top\right]=\Lambda^{-1}$\\
+
+\subsection*{Gaussian Process Prediction}
+$p(y_*|x_*,\mathbf{X},\mathbf{y}) = \mathcal{N}(\mu_{y*},\sigma^2_{y_*})$,\\
+$\mu_{y_*}=\mathbf{k}^T(\mathbf{K}+\sigma^2\mathbb{I})^{-1}\mathbf{y}$,\\
+$\sigma^2_{y_*}=k(x_*,x_*){+}\sigma^2-\mathbf{k}^T(\mathbf{K}+\sigma^2\mathbb{I})^{-1}\mathbf{k}$\\
+$\mathbf{k}=k(x_*,\mathbf{X})\quad \mathbf{K}_{ij}=k(x_i,x_j)$

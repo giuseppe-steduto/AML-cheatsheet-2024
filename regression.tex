@@ -1,0 +1,21 @@
+\section*{Regression}
+\textbf{Model of data}:
+$\mathbf{Y}=\mathbf{X}^T\beta +\epsilon$
+
+\subsection*{OLSE Ordinary Least Squares}
+Minim.
+$\mathcal{L}_O = (\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta)$:\\
+Expand (sum $\mathbf{y}^T\mathbf{X}\beta$ and its $^T$ bc. =), $\frac{\partial}{\partial\beta}$, $\partial\mathbf{y}^T\mathbf{X}\beta=\mathbf{X}^T\mathbf{y}, \partial\beta^T\textbf{X}^T\textbf{X}\beta=2\textbf{X}^T\textbf{X}\beta$ \\
+$\hat\beta_{OLSE}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$
+
+
+\subsection*{Ridge ($L^2$ penalty) and LASSO ($L^1$)}
+$\mathcal{L}_R\mathrm{=}\mathcal{L}_O\mathrm{+}\lambda\beta^T\beta\mathrm{|}\hat\beta_{R}\mathrm{=}(\textbf{X}^T\textbf{X}\mathrm{+}\lambda\textbf{I})^{-1}\textbf{X}^T\textbf{y}$
+$\mathcal{L}_L\mathrm{=}\mathcal{L}_O\mathrm{+}\lambda||\beta||$ no closed form
+
+\subsection*{Gauss-Markov Theorem}
+Declare $\gamma$ altro estimator $\gamma = CY$. Hint:\\
+$\mathbb{V}(a^T\gamma)\mathrm{=}a^T\mathrm{Cov}(\gamma)a\mathrm{\geq }a^T\sigma^2(X^TX)^{-1}a$ \\
+Show $\mathrm{Cov}(\hat\beta)\mathrm{=}\sigma^2(X^TX)^{-1}$, use hint: \\
+$\mathbb{V}(a^T\gamma)\mathrm{\geq }a^T\sigma^2(X^TX)^{-1}a\mathrm{=}a^T\mathrm{Cov}(\hat\beta)a$ \\
+

@@ -1,0 +1,18 @@
+\section*{Kernels}
+Similarity based reasoning\\
+Gram Matrix $K{=}K(\mathbf{x}_i, \mathbf{x}_j), 1{\leq} i,j{\leq} n$\\
+$K(\mathbf{x}, \mathbf{x'}) {=} \phi(\mathbf{x})^T\phi(\mathbf{x'}) \enskip K(\mathbf{x},\mathbf{x'}){=}K(\mathbf{x'},\mathbf{x})$\\
+$K(\mathbf{x},\mathbf{x'})$ pos.semi-def. (all EV $\geq$ 0)\\
+If $K_1$ \& $K_2$ are kernels $K$ is too:\\
+$K(\mathbf{x}, \mathbf{x'})=K_1(\mathbf{x}, \mathbf{x'})K_2(\mathbf{x}, \mathbf{x'})$\\
+$K(\mathbf{x},\mathbf{x'})=\alpha K_1(\mathbf{x}, \mathbf{x'})+\beta K_2(\mathbf{x}, \mathbf{x'})$\\
+$K(\mathbf{x},\mathbf{x'}){=}K_1(h(\mathbf{x}), h(\mathbf{x'}))\quad h:\mathcal{X}{\rightarrow}\mathcal{X}$\\
+$K(\mathbf{x},\mathbf{x'}){=}h(K_1(\mathbf{x}, \mathbf{x'}))\quad h$: polynomial \\
+with positive coefficients / exp function\\
+Kernel Function Examples:\\
+$K(\mathbf{x},\mathbf{x'}){=}\mathbf{x}^T\mathbf{x'}\quad K(\mathbf{x},\mathbf{x'}){=}(\mathbf{x}^T\mathbf{x'}{+}1)^p$\\
+RBF(Gauss):\\
+$K(\mathbf{x},\mathbf{x'}){=}\mathrm{exp}(-||\mathbf{x}{-}\mathbf{x'}||_2^2/h^2)$\\
+Sigmoid: $K(\mathbf{x},\mathbf{x'}){=}\mathrm{tanh}(\alpha\mathbf{x}^T\mathbf{x'}+c)$\\
+not p.s-d e.g: $\mathbf{x}{=}[1,-1], \mathbf{x'}{=}[-1,2]$ \\
+Size of feature space for kernel $(c+x*y)^d$, $x,y \in \mathbb{R}^N$: (n+d choose d)

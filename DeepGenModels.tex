@@ -1,0 +1,18 @@
+\section*{Deep Gen Modelling}
+\subsection*{NN}
+$f(x;\theta)=\phi(W^{(L)}\phi(W^{(L-1)}..\phi(W^{(1)}x))))$, can also express $v^{(l)}=\phi(W^{(l)}v^{(l-1)})$ and $v^{(0)}=x$
+\textbf{Remark:} If $\phi$ non polynomial, NN is a universal approximator (even if one hidden layer) to an arbitrary degree of accuracy.
+\textbf{Backprop:} Using MSE, then $\nabla_{W^{(L)}} J=\frac{\partial J}{\partial f}*\frac{\partial f}{\partial W^{(L)}}$\\
+$\nabla_{W^{(L-1)}} J=\frac{\partial J}{\partial f}*\frac{\partial f}{\partial z^{(L-1)}}*\frac{\partial z^{(L-1)}}{\partial W^{(L-1)}}$ and so on. Compute one factor only.
+
+\subsection*{VAEs}
+Models that can capture and represent complex data distributions.
+\textbf{InfoMax Principle:} $argmax_\phi I(X;Z)=\sum_{i\le n}\mathbb E_{Z|X_i}[log p(X_i|Z)]$ \textbf{Pr.} Expand MutInf e decomp $p(X,Z)$.\textbf{Remark:}Maximising MutInf not enough, doesn't say about disentanglement of X and Z and robustness.\\
+\textbf{ELBO:} $p(Z|X)$ intractable (for $p(X)$), hence approx $q_\phi(Z|X)$. $ELBO=\mathbb E_{Z\sim q}[log p_\theta(X|Z)]-D_{KL}(q_\theta(Z|X)||p_\theta(Z))$ (Reconstr [informative] + Regular [robust] Terms). ELBO optimized through MC-sampling, Repar Trick, GD.
+\subsection*{Robbins-Monroe Algo}
+Want to find root of $f(x)$, but only have noisy obs $z=f(x)+\epsilon$. Update rule: $x_{k+1}=x_k-\eta_k(f(x_k)+\epsilon)$, and $x_0=0$. If $\eta_k\to0$ (conv.), $\sum_k^\infty \eta_k=\infty$ (slow enough) and $\sum_k^\infty \eta_k^2<\infty$ (bounded), the RB Algo converges to $x^*$ with prob 1.
+\textbf{Remark:} SGD is a RB algorithm.
+
+\subsection*{Transformers}
+Designed for sequence-to-sequence tasks. Use self-attention mechanisms to model relationships between elements (NLP).(1). Tokenization (2). Embedding Vectors (3). Attention Layer (4). MLP (5). Unembedding [SoftMax].
+\textbf{Query - Key Mat:} Query = "what each token is looking for in other tokens", Key = "allow other tokens to identify its relevance in the sequence". \textbf{Attention Score} $\frac{QK^T}{\sqrt{d_k}}$. \textbf{Multi-head:} each head has a set of matrices. If masked, only look backwards. \textbf{Positional Encoding:} make transf seq-variant.

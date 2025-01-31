@@ -6,7 +6,20 @@ A. normal: $\hat{\theta}\sim\mathcal{N}(\theta_0, \hat{se}(\hat{\theta})^2)$, $n
 A. eff.: minim. $\mathbb{E}[(\hat{\theta} - \theta_0)^2]$ for $n\rightarrow\infty$\\
 MLE is all of the above. \\
 
+\subsection*{Stein estimator}
+$\hat{\theta}_{JS} := \Big(1 - \dfrac{(d-2)\sigma^2}{||y||^2} \Big) y$ has lower MSE than MLE if $d \geq 3$ (dimensions)
+
 \subsection*{Bayesian learning with Gaussian}
 $p(\theta|\mathcal{X}) \propto p(\mathcal{X}|\theta)p(\theta) $, keep only numerat. di $p(\theta)$, \\
 $p(\theta|\mathcal{X}) \propto \mathcal{N}(\theta|\frac{n}{n+1}\bar{X}+\frac1{n+1}\mu_0, \frac1{n+\sigma_0^{-2}})$
-    
+
+\subsection*{Rao-Cramer lower bound}
+$\mathbb{E}[(\hat{\theta} - \theta_0)^2] \geq \frac{\frac{\partial}{\partial\theta}b + 1}{\mathbb{E}[\Lambda^2]}+b^2$, \\ def.
+$\Lambda = \frac{\partial}{\partial\theta}\log p(y|\theta)=\frac{\frac{\partial}{\partial\theta}p(y|\theta)}{p(y|\theta)}$ \\
+Use Cauc-Schw on $\Lambda-\mathbb{E}[\Lambda]$, $\hat{\theta}-\mathbb{E}[\hat{\theta}]$ note $\mathbb{E}[\Lambda]=0$, add\&sub $\theta$, binomio$^2$, scomponi in $\mathbb{E}[(\hat\theta -\theta)^2] - b^2$
+
+\subsection*{Fisher information}
+$I(\theta) \mathrm{=} \mathbb{E}[\Lambda^2]\mathrm{=}\int p(y|\theta)\big( \frac{\partial}{\partial\theta}\log p(y|\theta)\big)^2dy $
+
+\subsection*{Bias-Variance decomposition}
+$MSE = E[(\hat{f}(x) - f(x) - \epsilon)^2]$.  Use bin$^2$: $(\hat{f}(x) - f(x)) - \epsilon$. $E[\epsilon] = 0$ nullifies the mix term; add\&sub $E[\hat{f}(x)]$ in the first term to split. $f(x)\mathrm{=}\mathbb{E}[y]$ for bias; $2ab$ fa 0

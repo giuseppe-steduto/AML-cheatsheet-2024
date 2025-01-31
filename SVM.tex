@@ -1,0 +1,59 @@
+\section*{Support Vector Machine (SVM)}
+Find plane that max. margin $m$ s.t.:\\
+$z_ig(\mathbf{y})=z_i(\mathbf{w}^T\mathbf{y}+w_0)\geq m,\forall \mathbf{y}_i \in \mathcal{Y}$\\
+$z_i \in \{-1,+1\}\quad \mathbf{y_i} = \phi(\mathbf{x_i})$\\
+Vectors $\mathbf{y}_i$ are the support vectors.\\
+\textbf{Weak Dual:} $w^*$ optim, $\max_\alpha\inf_w\mathcal L(w,\lambda,\alpha)\le f(w^*)$
+\textbf{Strong Dual:}$\max_\alpha\inf_w\mathcal L(w,\lambda,\alpha)= f(w^*)$\\
+\textbf{Slater's conds (suff for strong duality):}If $f, h_j$ are convex and $g_i$ affine, then a feasible $w$ exists s.t. $h_j(w)<0,\forall j\le n$, strong duality holds\\
+\textbf{Compl Slackness (only strong):} $\alpha_j h_j(w^*)=0,\forall j\le n$\\
+\textbf{Hard-margin SVM}:\\
+minimizes $||\mathbf{w}||$ for $m{=}1$: 
+$L(\mathbf{w}, w_0, \mathbf{\alpha}) {=}$\\
+$=\frac{1}{2}\mathbf{w}^T\mathbf{w}{-}\sum_{i=1}^n\alpha_i[z_i(\mathbf{w}^T\mathbf{y}_i{}+w_0){-}1]$\\
+where $\alpha$s are Lagrange multipliers.\\
+$\frac{\partial L}{\partial w} {=} 0$ and $\frac{\partial L}{\partial w_0} {=} 0$ give us constraints\\
+$\mathbf{w}=\sum_{i=1}^n\alpha_iz_i\mathbf{y_i} \quad 0=\sum_{i=1}^n\alpha_iz_i$\\
+Replacing these in $L$ we get Dual(max $\alpha)$\\
+$\tilde{L}(\mathbf{\alpha}){=}\sum_{i=1}^n\alpha_i{-}\frac{1}{2}\sum_{i,j=1}^n\alpha_i\alpha_jz_iz_j\mathbf{y_i}^T\mathbf{y_j}$
+with $\alpha_i\geq0\quad\mathrm{and}\quad\sum_{i=1}^n\alpha_iz_i=0$\\
+The optimal hyperplane is given by\\
+$\mathbf{w^*}=\sum_{i=1}^n\alpha_i^*z_i\mathbf{y_i}$\\
+$ w_0^*{=}{-}\frac{1}{2}(\mathrm{min}_{z_i=1}\mathbf{w^*}^T\mathbf{y_i}{+}\mathrm{max}_{z_i=-1}\mathbf{w^*}^T\mathbf{y_i})$\\
+where $\mathbf{\alpha}$ maximize the dual problem.\\
+Only Support Vectors ($\alpha_i\not=0$) contribute to the evaluation.\\
+Optimal Margin: $\mathbf{w}^T\mathbf{w}=\sum_{i\in SV}\alpha_i^*$\\
+Discrim.: $g^*(\mathbf{x}){=}\sum_{i\in SV}z_i\alpha_i\mathbf{y_i}^T\mathbf{y_i}{+}w^*_0$\\
+$\mathrm{class} = \mathrm{sign(\mathbf{y}^T\mathbf{w}^*+w_0^*)}$ \\
+
+
+\subsection*{Soft Margin SVM}
+Introduce slack to relax constraints\\
+minimize $\frac{1}{2}w^Tw + C\sum_{i=1}^n \xi_i$ with respect to: 
+$z_i(\mathbf{w}^T\mathbf{y}_i+w_0)\geq m(1-\xi_i)$\\
+Lagrangian: $L(\mathbf{w}, w_0,\mathbf{\xi}, \mathbf{\alpha}, \mathbf{\beta}) {=}\frac{1}{2}\mathbf{w}^T\mathbf{w}+C\sum_{i=1}^n\xi_i$
+${-}\sum_{i=1}^n\alpha_i[z_i(\mathbf{w}^T\mathbf{y}_i{+}w_0){-}1{+}\xi_i]$\\
+${-}\sum_{i=1}^n\beta_i\xi_i$\\
+$C$ controls margin maximization vs. constraint violation\\
+Dual Problem same as usual SVM but with supplementary constraint:
+$C \geq \alpha_i \geq 0$
+\subsection*{Non-Linear SVM}
+Use kernel in discriminant function: \\ $g(\mathbf{x})=\sum_{i,j=1}^n\alpha_iz_iK(\mathbf{x_i},\mathbf{x})$\\
+
+\subsection*{Multiclass SVM}
+$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem: $\quad(\mathbf{w} \text{ is stacked})$\\
+$min_w \frac{1}{2}w^Tw = min_{\{w_z\}_{n=1}^M} \sum_{z=1}^M w_z^Tw_z$ \\
+s.t. $(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-$\\
+$\quad \ \ \max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq 1, \forall {\mathbf{y}_i\in \mathcal{Y}}$ \\
+predict: $\hat z = argmax_z (w_z^Ty + w_{z,0})$
+
+\subsection*{Structured SVM}
+Each sample \textbf{y} is assigned to a structured output label $z$\\
+Output Space Representation:\\
+joint feature map: $\mathbf{\psi}(z,\mathbf{y})$\\
+Scoring function: $f_{\mathbf{w}}(z,\mathbf{y})=\mathbf{w}^T\mathbf{\psi(z, \mathbf{y})}$\\
+Classify: $\hat{z}=h(\mathbf{y})=\argmax_{z\in\mathbb{K}}f_{\mathbf{w}(z, \mathbf{y})}$
+SVM objective: \\ $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-max_{z_i \neq z}w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq m$ \\
+with margin rescaling: $min_{w, \xi \geq 0} \frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i$ s.t. $w^T\mathbf{\psi}(z_i,\mathbf{y_i})-\Delta(z,z_i)
+-w^T\mathbf{\psi}(z,\mathbf{y_i}) \geq - \xi_i$ $\forall z \neq z_i$ $\forall i$ \\
+Lagrangian: let $\mathbb{K}_i = \mathbb{K} \backslash {z_i}$ \\ $\frac{1}{2}w^Tw + C \sum_{i=1}^n \xi_i - \sum_{i=1}^n \sum_{z_j \in \mathbb{K}_i} \alpha_{i,j} (w^T \psi(z_i, y_i)- \Delta (z_j, z_i) - w^T \psi(z_j,y_i)+ \xi_i) - \sum_{i=1}^n \beta_i \xi_i$ with $\alpha_{i,j} \geq 0, \beta_i \geq 0$ 
