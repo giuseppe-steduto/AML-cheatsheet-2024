@@ -12,6 +12,8 @@ $\hat\beta_{OLSE}=(\textbf{X}^T\textbf{X})^{-1}\textbf{X}^T\textbf{y}$
 \subsection*{Ridge ($L^2$ penalty) and LASSO ($L^1$)}
 $\mathcal{L}_R\mathrm{=}\mathcal{L}_O\mathrm{+}\lambda\beta^T\beta\mathrm{|}\hat\beta_{R}\mathrm{=}(\textbf{X}^T\textbf{X}\mathrm{+}\lambda\textbf{I})^{-1}\textbf{X}^T\textbf{y}$
 $\mathcal{L}_L\mathrm{=}\mathcal{L}_O\mathrm{+}\lambda||\beta||$ no closed form
+\subsection*{SVD decomposition}
+$X=UDV^T$, ricorda $D\mathrm{=}D^T$ (diag.), and $V^T$ can pass over diagonal values. Adding $\lambda I$ to $D^2$ shows equation solv. even if multicol. (and $D^2$ can't be inverted)
 
 \subsection*{Gauss-Markov Theorem}
 Declare $\gamma$ altro estimator $\gamma = CY$. Hint:\\

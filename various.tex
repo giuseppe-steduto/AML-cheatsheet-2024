@@ -1,0 +1,26 @@
+\section*{Various}
+\subsection*{Bayes' rule v2}
+$P(A|B, C)\propto P(A|B)P(C|A, B)$
+
+\subsection*{Metrics}
+Accuracy: $\frac{\mathrm{correct\ classifications}}{\mathrm{total\ classifications}}$ Rec: $\frac{TP}{TP+FN}$ Prec: $\frac{TP}{TP+FP}$
+F1: $\frac{2}{\mathrm{recall}^{-1}+\mathrm{precision^{-1}}}$
+\subsection*{PCA}
+Sample Var: $\frac 1n \sum_i^n(u^Tx_i-u^T\bar X)^2=u^TSu$ then Lagr. $L(u,\lambda)=u^TSu+\lambda(1{-}u^Tu)$.
+
+\subsection*{Info Transductive Learning}
+$I(y_x;f_A|\mathcal D_{n-1})\mathrm{=}H(y_x|\mathcal D_{n-1})\mathrm{-}H(y_x|f_A, \mathcal D_{n-1})$
+$I(y_x;f_A|\mathcal D_{n-1})=\frac 12 log(\frac{Var(y_x|\mathcal D_{n-1})}{Var(y_x|f_A,\mathcal D_{n-1})})$ \textbf{Pr.}
+Obtain $H[a|B]=\frac 12 log(2\pi e\sigma^2_{a|B})$ from entropy def., subst. in MutInfo.
+\subsection*{Safe Bayesian Optimization}
+Fit GP on $\{x_i,y_i\}$ and fit GP on $\{x_i,z_i\}$, then fai $\mathcal S_n=\{x:l^f_n(x)\ge 0\}$ e $\mathcal{\hat S_n}=\{x:l^f_n(x)\ge 0\}$. Poi $\mathcal A_n=\{x\in\mathcal{\hat S_n}:u^f_n(x)\ge\max_{x'}l^f_n(x')\}$ as target space e $\mathcal S_n$ as sample space.
+\subsection*{Projection}
+$proj_w(x)=\frac{w^Tx}{||w||^2}w$
+\subsection*{Diffusion Models}
+\textbf{Master Equation:} $\tau\frac{\partial}{\partial t}c_i(t)=\frac{p-q}2(c_{i+1} - c_{i-1})+\frac{p+q}2(c_{i+1}-2c_i+c_{i-1})$
+\textbf{Diffusion Equation:}$\frac{\partial}{\partial t}c(X,t)=D\frac{\partial^2}{\partial^2x}c(X,t)$
+\textbf{Final expr:}$c(X,t)=\frac{1}{\sqrt{4\pi Dt}}exp(-\frac{(x-x_0)^2}{4Dt})$ \\
+
+
+Letsgoski lo platiniamo questo \\
+Eccetto se esce la diffusion equation

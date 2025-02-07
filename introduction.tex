@@ -3,14 +3,16 @@
 $\mathbbm{E}[X]=\int_{\Omega}xf(x)\di x=\int_{\omega}x\mathbb{P}[X{=}x]\di x$ \\
 $\mathbb{E}_{Y|X}[Y]=\mathbb{E}_{Y}[Y|X]$\\
 $\mathbb{E}_{X,Y}[f(X,Y)]=\mathbb{E}_{X}\mathbb{E}_{Y|X}[f(X,Y)|X]$
+$\mathbb{E}[XY]=\mathbb{E}[X]\mathbb{E}[Y]$ if $X,Y$ independent
 % $\mathbb{E}_{Y|X}[f(X,Y)|X]{=}\int_\mathbb{R}f(X,y)\mathbb{P}(y|X)\di y$
 
 \subsection*{Variance \& Covariance}
 $\mathbb{V}(X){=}\mathbb{E}[(X{-}\mathbb{E}[X])^2]{=}\mathbb{E}[X^2]{-}\mathbb{E}[X]^2$\\
-$\mathbb{V}[X{+}Y]{=}\mathrm{Var}[X]{+}\mathrm{Var}[Y] \quad \text{for }X,Y \,\text{iid} \\
-\mathbb{V}(AX) = A \mathbb{V}(X) A^T$ \\
+$\mathbb{V}[X{+}Y]{=}\mathrm{Var}[X]{+}\mathrm{Var}[Y]{+}2\mathrm{Cov}(X,Y)$ \\
+$\mathbb{V}(AX) = A \mathbb{V}(X) A^T$ \\
 $\mathbb{V}[\alpha X]=\alpha^2\mathrm{Var}[X]\ \ \ \ \  \mathrm{Cov}(X)=\mathbb{E}[XX^T]$ \\
 $\mathrm{Cov}(X,Y)=\mathbb{E}[(X-\mathbb{E}[X])(Y-\mathbb{E}[Y])]$
+$\mathrm{Cov}(X,Y)=\mathbb{E}[XY]-\mathbb{E}[X]\mathbb{E}[Y]$
 
 \subsection*{Conditional Probabilities \& Bayes}
 $\mathbb{P}[X|Y]=\frac{\mathbb{P}[X,Y]}{\mathbb{P}[Y]}=\frac{\mathbb{P}[Y|X]\mathbb{P}[X]}{\mathbb{P}[Y]}$
@@ -26,7 +28,7 @@ $\big(\mathbb{E}[xy]\big)^2 \leqslant \mathbb{E}[x^2]\mathbb{E}[y^2]$
 \subsection*{Jensen Inequality}
 $f(\sum_{i=1}^n \lambda_i x_i) \leq \sum_{i=1}^n \lambda_i f(x_i)$
 \subsection*{Markov's Inequality}
-$P(X \geq a) \leq \frac{\mathbb{E}[X]}a$
+$P(X \geq a) \leq \frac{\mathbb{E}[\varphi(X)]}{\varphi(a)}$
 \subsection*{Union Bound}
 $P\big(\bigcup_i A_i\big) \leq \sum_iP(A_i)$
 

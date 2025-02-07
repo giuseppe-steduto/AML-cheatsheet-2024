@@ -1,4 +1,6 @@
 \section*{Unsupervised Learning}
+\subsection*{EM}
+$log p(X)=\mathbb E_{Z\sim q}[log\frac{p(X,Z)}{q(Z)}]+E_{Z\sim q}[log\frac{q(Z)}{p(Z|X)}] = M+E$
 \subsection*{EM for GMM}
 Iteratively and approx solve $\theta^*=\argmax_\theta \max_z p(\mathcal X, \mathcal Z|\theta)$\\
 \textbf{E step:} Respons. $\gamma_{ik}=\frac{\pi_k\mathcal N(x_i|\mu_k,\Sigma_k)}{\sum_j\pi_j\mathcal N(x_i|\mu_j,\Sigma_j)}$

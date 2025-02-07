@@ -6,9 +6,10 @@ ERM is $\hat c_{n}^*=\min_c \hat{\mathcal R_n}(c)$\\
 ExpE is unbiased estimator of GenE
 \subsection*{PAC Learning Model}
 A learning algorithm $\mathcal A$ can learn a concept class $\mathcal C$ from an hypothesis class $\mathcal H$ if there is a polynomial function such that: (1) $\forall c\in\mathcal C$, (2) $\forall\mathcal D$ (train set), (3) $\forall 0<\epsilon,\delta<0.5$ then $\mathbb{P}(\mathcal R(c)\le\epsilon)\ge 1-\delta$. If $\mathcal A$ runs in $poly(1/\epsilon,1/\delta)$, Efficient PAC.\\
-The universal class is not PAC-learnable
+The universal class is not PAC-learnable.
+\textbf{PAC from itself:} Let $\delta |1-P(\cdot\leq\varepsilon)\leq \exp(-\varepsilon n)<\delta$
 \textbf{Consistent:}$\mathcal{\hat R}_n(\hat c)=0$
-\textbf{Pr. Err Finite Consistent:} Parti da $\mathbb{P}(\mathcal {\hat R}_n(\hat c)=0)\le (1-\epsilon)^n$ ma serve per tutte HPs. Hence $\le |\mathcal H|(1-\epsilon)^n\le|\mathcal H|e^{-n\epsilon}$ e $\hat c$ dato da $\mathcal A$.
+\textbf{Pr. Err Finite Consistent:} Parti da $\mathbb{P}(\mathcal {R}(\hat c)=0)\le (1-\epsilon)^n$ ma serve per tutte HPs. Hence $\le |\mathcal H|(1-\epsilon)^n\le|\mathcal H|e^{-n\epsilon}$ e $\hat c$ dato da $\mathcal A$. \textbf{Effic. PAC-l with min:} Observe that if $l_{min}^n>l^+_\varepsilon$, then $\mathcal{R}(c)>\varepsilon$
 \subsection*{General PAC - with noise}
 $\mathbb{P}((\mathcal R(\hat c)-\inf_c R(c))\le\epsilon)\ge 1-\delta$\\
 \textbf{Err Finite H:} $\mathbb{P}(R(\hat c_n^*)-\inf_cR(c)>\epsilon)\le 2|C|exp(-2n\epsilon^2)$
@@ -19,3 +20,4 @@ If $\mathbb{E}[X]=0$, then $\mathbb{E}[e^{sX}]\le e^{\frac{s^2(b-a)^2}{8}}$.
 \subsection*{Hoeffding's Th}
 Let $X_{i\le n}\in[a_i,b_i]$ iid, and $S_n=\sum_i^nX_i$, then $\mathbb{P}(S_n-\mathbb{E}[S_n]>\epsilon)\le exp(\frac{-2\epsilon^2}{\sum_i^n(b_i-a_i)^2})$
 \textbf{Err Finite Classif:} $\mathbb{P}(\sup_c|\mathcal R(c)-\hat R_n(c)|>\epsilon)\le 2Nexp(-2n\epsilon^2)$ \textbf{Pr.} Use UniBound e Hoeff Theo.
+\subsection*{ERM for Hyperplanes:}$P(\mathcal R(\hat c)-\inf_c\mathcal R(c)>\epsilon)\le e^{2de}(2\binom nd+1)exp(-\frac{n\epsilon^2}{2})$ \textbf{Pr.KTM}

@@ -34,15 +34,15 @@ $z_i(\mathbf{w}^T\mathbf{y}_i+w_0)\geq m(1-\xi_i)$\\
 Lagrangian: $L(\mathbf{w}, w_0,\mathbf{\xi}, \mathbf{\alpha}, \mathbf{\beta}) {=}\frac{1}{2}\mathbf{w}^T\mathbf{w}+C\sum_{i=1}^n\xi_i$
 ${-}\sum_{i=1}^n\alpha_i[z_i(\mathbf{w}^T\mathbf{y}_i{+}w_0){-}1{+}\xi_i]$\\
 ${-}\sum_{i=1}^n\beta_i\xi_i$\\
-$C$ controls margin maximization vs. constraint violation\\
+$C$ controls margin maximization vs. class. error. $C$ large= no misclassification\\
 Dual Problem same as usual SVM but with supplementary constraint:
 $C \geq \alpha_i \geq 0$
 \subsection*{Non-Linear SVM}
 Use kernel in discriminant function: \\ $g(\mathbf{x})=\sum_{i,j=1}^n\alpha_iz_iK(\mathbf{x_i},\mathbf{x})$\\
 
 \subsection*{Multiclass SVM}
-$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem: $\quad(\mathbf{w} \text{ is stacked})$\\
-$min_w \frac{1}{2}w^Tw = min_{\{w_z\}_{n=1}^M} \sum_{z=1}^M w_z^Tw_z$ \\
+$\forall$class $z\in\{1,2,\cdots,M\}$ we introduce $\mathbf{w}_z$ and define our problem:
+$min_{\{w_z\}_{n=1}^M}\frac 12 \sum_{z=1}^M w_z^Tw_z$ \\
 s.t. $(\mathbf{w}_{z_i}^T\mathbf{y}_i+w_{z_i,0})-$\\
 $\quad \ \ \max_{z\not=Z_i}(\mathbf{w}_z^T\mathbf{y}_i+w_{z,0})\geq 1, \forall {\mathbf{y}_i\in \mathcal{Y}}$ \\
 predict: $\hat z = argmax_z (w_z^Ty + w_{z,0})$

@@ -16,3 +16,5 @@ $K(\mathbf{x},\mathbf{x'}){=}\mathrm{exp}(-||\mathbf{x}{-}\mathbf{x'}||_2^2/h^2)
 Sigmoid: $K(\mathbf{x},\mathbf{x'}){=}\mathrm{tanh}(\alpha\mathbf{x}^T\mathbf{x'}+c)$\\
 not p.s-d e.g: $\mathbf{x}{=}[1,-1], \mathbf{x'}{=}[-1,2]$ \\
 Size of feature space for kernel $(c+x*y)^d$, $x,y \in \mathbb{R}^N$: (n+d choose d)
+$k(x,x')=exp(k_1(x,x'))$, apply Taylor $\sum_{r=1}^m\frac{k_1(x,x')^r}{r!}\to k(x,x')$ for $m\to \infty$. Every term is valid, hence valid.\\
+$k(x,x')=exp(-\frac 1{2l^2}||x-x'||^2_2)$, open the exp, all terms valid, hence valid.

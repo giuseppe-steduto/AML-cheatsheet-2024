@@ -14,8 +14,8 @@ $p(\theta|\mathcal{X}) \propto p(\mathcal{X}|\theta)p(\theta) $, keep only numer
 $p(\theta|\mathcal{X}) \propto \mathcal{N}(\theta|\frac{n}{n+1}\bar{X}+\frac1{n+1}\mu_0, \frac1{n+\sigma_0^{-2}})$
 
 \subsection*{Rao-Cramer lower bound}
-$\mathbb{E}[(\hat{\theta} - \theta_0)^2] \geq \frac{\frac{\partial}{\partial\theta}b + 1}{\mathbb{E}[\Lambda^2]}+b^2$, \\ def.
-$\Lambda = \frac{\partial}{\partial\theta}\log p(y|\theta)=\frac{\frac{\partial}{\partial\theta}p(y|\theta)}{p(y|\theta)}$ \\
+$\mathbb{E}[(\hat{\theta} - \theta)^2] \geq \frac{(\frac{\partial}{\partial\theta}b + 1)^2}{\mathbb{E}[\Lambda^2]}+b^2$, def.
+$\Lambda = \frac{\partial}{\partial\theta}\log p(y|\theta)=\frac{\frac{\partial}{\partial\theta}p(y|\theta)}{p(y|\theta)}$ do $\mathbb E[\Lambda\hat\theta]$
 Use Cauc-Schw on $\Lambda-\mathbb{E}[\Lambda]$, $\hat{\theta}-\mathbb{E}[\hat{\theta}]$ note $\mathbb{E}[\Lambda]=0$, add\&sub $\theta$, binomio$^2$, scomponi in $\mathbb{E}[(\hat\theta -\theta)^2] - b^2$
 
 \subsection*{Fisher information}

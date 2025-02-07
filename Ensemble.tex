@@ -31,14 +31,17 @@ Fit  $\hat{c}_b(x)$ to $\mathcal{X}$ weighted by $w^{(b)}$\\
 $\epsilon_b=\sum_{i=1}^nw_i^{(b)}\mathbb{I}_{\{\hat c_b(x_i)\not=y_i\}}/\sum_{i=1}^nw_i^{(b)}$\\
 $\alpha_b = \mathrm{log}\frac{1-\epsilon_b}{\epsilon_b}>0$\\
 $w_i^{(b+1)}=w_i^{(b)}\mathrm{exp}(\alpha_b\mathbb{I}_{\{{\hat c_b(x_i)\not=y_i}\}})$\\
-return $\hat{c}_B(x){=}\mathrm{sgn}(\sum_{b{=}1}^B\alpha_b \hat c_b(x))$\\
+return $\hat{c}_{ADA}(x){=}\mathrm{sgn}(\sum_{b{=}1}^B\alpha_b \hat c_b(x))$\\
 Best approx. at log-odds ratio. \\
-Like stagewise-additive modeling.
+Like stagewise-additive modeling with exp loss.
+
+\subsection*{Th.Adaboost}
+$\mathbb E[e^{-yF(x)}]$ is minim at $F(x)=\frac 12 log\frac{\mathbb P(y=1|x)}{\mathbb P(y=-1|x)}$. Hence, posterior is $\mathbb P(y=1|x)=\frac{e^{F(x)}}{e^{F(x)}+e^{-F(x)}}$. \textbf{Pr.} $\mathbb E[e^{-yF(x)}]=\mathbb P(y=1|x)e^{-F(x)}+\mathbb P(y=-1|x)e^{F(x)}$, then derive and =0.
 
 \subsection*{Difference}
 (1) Boosting keeps identical training data, bagging potentially varies the training data for each classifier. (2) Boosting weighs the prediction of each classifier according to its accuracy, bagging gives same importance to each.
 
-\subsection*{Notes} ciao bond
+\subsection*{Notes}
 AdaBoost gives large weight to samples that are hard to classify: those could be outliers. For bagging, there is a chance that imbalanced data-sets lead to bootstrap samples missing a class alltogether. Fix by making the bootstrap size large enough s.t. at least one point is included.
 \subsection*{Logistic Regression}
 $log\frac{P(y=1|x)}{P(y=-1|x)} = \sum_{b=1}^Bc_b(x) =: F(x)$
